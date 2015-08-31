@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <line id="0">
+    <display>Y</display>
+    <soldout>N</soldout>
+    <title>请不要在此直接修改1</title>
+    <price>0</price>
+    <link>##</link>
+    <remark>
+      <r0 tag="搜索关键词">[{"value":"签证","url":"http://cgzl.tmall.com/category-905437805.htm?spm=a1z10.4.w5002-6789938861.3.Q02gun&amp;search=y&amp;catName=%C8%AB%C7%F2%C7%A9%D6%A4"},{"value":"日本","url":"http://cgzl.tmall.com/category-905439019.htm?spm=a1z10.3.0.0.sZipEG&amp;search=y&amp;catName=%C8%D5%B1%BE"},{"value":"台湾","url":"http://cgzl.tmall.com/category-957226595.htm?spm=a1z10.5.0.0.SadFyJ&amp;search=y&amp;catName=%CC%A8%CD%E5"},{"value":"门票","url":"http://cgzl.tmall.com/?spm=a1z10.5.w4011-6789938887.7.feG5Lj&amp;q=%C3%C5%C6%B1&amp;type=p&amp;from=inshophq_6_0&amp;search=y&amp;newHeader_b=s_from&amp;searcy_type=item"},{"value":"111","url":"3222"},{"value":"2222","url":"ffdsfsdfsd"},{"value":"rrrrrrrrrrrrrrrrrrrrrr","url":"123"}]</r0>
+      <r1 tag="导航菜单">[{"value":"HOME首页","url":"http://cgzl.tmall.com/?scene=taobao_shop/"},{"value":"年中大促","url":"http://cgzl.alitrip.com/category-1075577078.htm?spm=a1z10.1-b.0.0.VFXOAx&amp;search=y&amp;catName=%C4%EA%D6%D0%B4%F3%B4%D9"},{"value":"全球签证","url":"http://cgzl.tmall.com/category-905437805.htm"},{"value":"欧洲","url":"http://cgzl.tmall.com/category-981688017.htm?spm=a1z10.5-b.w4011-6789938887.9.58xtvG&amp;search=y#TmshopSrchNav"},{"value":"省内海滩","url":"http://cgzl.tmall.com/category-927118466.htm?spm=a1z10.5-b.0.0.QLhluu&amp;search=y&amp;parentCatId=927118465&amp;parentCatName=%B9%E3%B6%AB%D6%DC%B1%DF%D3%CE&amp;catName=%C9%B3%CC%B2%2F%BA%A3%B5%BA"},{"value":"东南亚","url":"http://cgzl.alitrip.com/category-1069648108.htm?spm=a1z10.5-b.0.0.0Yzsq5&amp;search=y&amp;parentCatId=1006897217&amp;parentCatName=%B3%F6%BE%B3%D7%D4%D3%C9%D0%D0%2F%B8%FA%CD%C5%D3%CE&amp;catName=%B6%AB%C4%CF%D1%C7"},{"value":"香港","url":"http://cgzl.tmall.com/category-906673429.htm?spm=a1z10.5.w5001-8956358692.8.UXxJfI&amp;search=y&amp;catName=%CF%E3%B8%DB&amp;scene=taobao_shop"},{"value":"日本","url":"http://cgzl.tmall.com/category-905439019.htm?spm=a1z10.5-b.w4011-6789938887.16.OcIrCd&amp;search=y#TmshopSrchNav"},{"value":"长隆","url":"http://cgzl.tmall.com/category-984690522.htm?spm=a1z10.5.w5001-8956358692.10.i2M8gM&amp;search=y&amp;scene=taobao_shop#TmshopSrchNav"},{"value":"周边游","url":"http://cgzl.tmall.com/category-945317391.htm?spm=a1z10.1-b.0.0.6bgFuN&amp;search=y&amp;parentCatId=927118465&amp;parentCatName=%B9%E3%B6%AB%D6%DC%B1%DF%D3%CE&amp;catName=%B8%FA%CD%C5%D3%CE"},{"value":"关于我们","url":"http://cgzl.tmall.com/p/rd504540.htm?spm=a1z10.4.w5001-8956358692.12.1KyeiL&amp;scene=taobao_shop"}]</r1>
+    </remark>
+  </line>
+  <line id="1">
+    <display>Y</display>
+    <soldout>N</soldout>
+    <title>请不要在此直接修改</title>
+    <price>0</price>
+    <link>##</link>
+    <remark>
+      <r0 tag="设置焦点图">[{"value":"http://img04.taobaocdn.com/imgextra/i4/2067413496/TB2rUY4dXXXXXXbXpXXXXXXXXXX_!!2067413496.jpg","url":"http://cgzl.tmall.com/p/tuesday.htm"},{"value":"http://img04.taobaocdn.com/imgextra/i4/2067413496/TB2Nvy9cFXXXXbyXXXXXXXXXXXX_!!2067413496.jpg","url":"http://cgzl.alitrip.com/category-1075577078.htm?spm=a1z10.1-b.w5001-10132340897.8.hNtnns&amp;search=y&amp;catName=%C4%EA%D6%D0%B4%F3%B4%D9&amp;scene=taobao_shop"},{"value":"http://img04.taobaocdn.com/imgextra/i4/2067413496/TB29FzqcpXXXXajXpXXXXXXXXXX_!!2067413496.jpg","url":"http://cgzl.alitrip.com/p/beach.htm"},{"value":"http://img03.taobaocdn.com/imgextra/i3/2067413496/TB2LTBrbVXXXXatXpXXXXXXXXXX_!!2067413496.jpg","url":"http://cgzl.tmall.com/p/visa.htm"}]</r0>
+      <r1 tag="设置背景">[]</r1>
+    </remark>
+  </line>
+  <line id="2">
+    <display>Y</display>
+    <soldout>N</soldout>
+    <title>请不要在此直接修改</title>
+    <price>0</price>
+    <link>##</link>
+    <remark>
+      <r0 tag="设置旅游度假">[{"value":"叮当"},{"value":"坤坤"},{"value":"大吉"},{"value":"岚岚"},{"value":"米菲"}]</r0>
+      <r1 tag="设置订房订票">[{"value":"云儿"},{"value":"珊珊"},{"value":"斋斋"},{"value":"222222"},{"value":"3333333"},{"value":"333322222"}]</r1>
+    </remark>
+  </line>
+  <line id="3">
+    <display>Y</display>
+    <soldout>N</soldout>
+    <title>请不要在此直接修改</title>
+    <price>0</price>
+    <link>##</link>
+    <remark>
+      <r0 tag="设置分类一">[{"value":"美洲","url":"http://cgzl.tmall.com/category-909289356.htm?spm=a220o.1000855.0.0.Euc022&amp;search=y&amp;catName=%C3%C0%D6%DE"},{"value":"欧洲","url":"http://cgzl.tmall.com/category-1044223952.htm?spm=a1z10.1-b.0.0.saLLR9&amp;search=y&amp;parentCatId=981688017&amp;parentCatName=%C5%B7%D6%DE&amp;catName=%C5%B7%D6%DE%D7%D4%D3%C9%D0%D0"},{"value":"日本","url":"http://cgzl.tmall.com/category-905439019.htm?spm=a1z10.5.0.0.65Qe5d&amp;search=y&amp;catName=%C8%D5%B1%BE"},{"value":"韩国","url":"http://cgzl.tmall.com/category-905434773.htm?spm=a1z10.5.0.0.4HlGzE&amp;search=y&amp;catName=%BA%AB%B9%FA"},{"value":"海岛","url":"http://cgzl.tmall.com/category-906177860.htm?spm=a1z10.5.0.0.RDGj7C&amp;search=y&amp;catName=%B3%F6%BE%B3%BA%A3%B5%BA"},{"value":"泰国","url":"http://cgzl.tmall.com/category-905434729.htm?spm=a1z10.5-b.0.0.UUXVUL&amp;search=y&amp;parentCatId=905434726&amp;parentCatName=%B6%AB%C4%CF%D1%C7&amp;catName=%CC%A9%B9%FA"},{"value":"马来西亚","url":"http://cgzl.tmall.com/category-945317393.htm?spm=a1z10.5-b.0.0.ogSCnf&amp;search=y&amp;parentCatId=905434726&amp;parentCatName=%B6%AB%C4%CF%D1%C7&amp;catName=%C2%ED%C0%B4%CE%F7%D1%C7"}]</r0>
+      <r1 tag="设置分类二">[{"value":"美签","url":"http://detail.tmall.com/item.htm?spm=a1z10.1-b.w5003-9880563001.6.96z2YI&amp;&amp;id=38602410112&amp;scene=taobao_shop"},{"value":"澳签","url":"http://detail.tmall.com/item.htm?spm=a1z10.1-b.w5003-9880563001.7.96z2YI&amp;id=39428228000&amp;scene=taobao_shop"},{"value":"入台证","url":"http://detail.tmall.com/item.htm?spm=a1z10.1-b.w5003-9880563001.8.96z2YI&amp;id=38754698440&amp;scene=taobao_shop"},{"value":"泰国签证","url":"http://detail.tmall.com/item.htm?spm=a1z10.1-b.w5003-9880563001.9.96z2YI&amp;id=38585443847&amp;scene=taobao_shop"},{"value":"新加坡签证","url":"http://detail.tmall.com/item.htm?spm=a1z10.1-b.w5003-9880563001.10.96z2YI&amp;id=38646953785&amp;rn=6ce2037a157fee2e8dd2e62ee953913b&amp;abbucket=10&amp;scene=taobao_shop"},{"value":"更多签证","url":"http://cgzl.tmall.com/category-905437805.htm?spm=a1z10.1-b.w5003-9880563001.11.96z2YI&amp;catName=%C8%AB%C7%F2%C7%A9%D6%A4&amp;scene=taobao_shop"}]</r1>
+      <r2 tag="设置分类三">[{"value":"台湾","url":"http://cgzl.tmall.com/category-957226595.htm?spm=a1z10.1-b.w5003-9880563001.14.96z2YI&amp;search=y&amp;catName=%CC%A8%CD%E5&amp;scene=taobao_shop#bd"},{"value":"香港","url":"http://cgzl.tmall.com/category-906673429.htm?spm=a1z10.1-b.w5003-9880563001.12.96z2YI&amp;search=y&amp;catName=%CF%E3%B8%DB&amp;scene=taobao_shop#bd"},{"value":"澳门","url":"http://cgzl.tmall.com/category-945483958.htm?spm=a1z10.1-b.w5003-9880563001.13.96z2YI&amp;search=y&amp;catName=%B0%C4%C3%C5&amp;scene=taobao_shop#bd"}]</r2>
+      <r3 tag="设置分类四">[{"value":"北京","url":"http://cgzl.tmall.com/category-1010052664.htm?spm=a1z10.1-b.w5003-9880563001.15.96z2YI&amp;search=y&amp;catName=%B1%B1%BE%A9&amp;scene=taobao_shop"},{"value":"厦门","url":"http://cgzl.tmall.com/category-1010085846.htm?spm=a1z10.1-b.w5003-9880563001.16.96z2YI&amp;search=y&amp;catName=%CF%C3%C3%C5&amp;scene=taobao_shop"},{"value":"云南","url":"http://cgzl.tmall.com/category-945320270.htm?spm=a1z10.1-b.0.0.yMDWEs&amp;search=y&amp;catName=%C0%F6%BD%AD"},{"value":"桂林","url":"http://cgzl.tmall.com/category-945320273.htm?spm=a1z10.5-b.0.0.NnPZbB&amp;search=y&amp;catName=%B9%F0%C1%D6"},{"value":"海南","url":"http://detail.tmall.com/item.htm?spm=a1z10.3-b.w4011-6798710441.165.ZBZRHd&amp;id=43948631356&amp;rn=7e639dcfecec9fd648943d0bb9995e37&amp;abbucket=8"}]</r3>
+      <r4 tag="设置分类五">[{"value":"长隆","url":"http://cgzl.tmall.com/category-984690522.htm?spm=a1z10.1-b.w5003-9880563001.17.96z2YI&amp;search=y&amp;catName=%B3%A4%C2%A1&amp;scene=taobao_shop"},{"value":"酒店","url":"http://cgzl.tmall.com/category-945317389.htm?spm=a1z10.1-b.w5003-9880563001.18.96z2YI&amp;search=y&amp;parentCatId=927118465&amp;parentCatName=%B9%E3%B6%AB%D6%DC%B1%DF%D3%CE&amp;catName=%BE%C6%B5%EA&amp;scene=taobao_shop"},{"value":"沙滩","url":"http://cgzl.alitrip.com/category-927118466.htm?spm=a1z10.1-b.w5001-10132340897.11.oKjDrj&amp;search=y&amp;parentCatId=927118465&amp;parentCatName=%B9%E3%B6%AB%D6%DC%B1%DF%D3%CE&amp;catName=%C9%B3%CC%B2%2F%BA%A3%B5%BA%2F%C6%AF%C1%F7&amp;scene=taobao_shop"}]</r4>
+      <r5 tag="设置分类名称">出境游度假</r5>
+      <r6 tag="设置分类名称">全球签证</r6>
+      <r7 tag="设置分类名称">港澳台</r7>
+      <r8 tag="设置分类名称">国内游</r8>
+      <r9 tag="设置分类名称">广东周边游</r9>
+    </remark>
+  </line>
+</root>
