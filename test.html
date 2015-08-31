@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="gzlTmall">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="scripts/Angular.js"></script>
+    <script src="scopeJson.js"></script>
+    <script src="ajaxHandler.js"></script>
+</head>
+<body>
+<ul ng-controller="Model_A_1">
+    <li ng-repeat="item in model">
+        <input type="text" ng-model="item.text"/>
+        <input type="text" ng-model="item.url"/>
+    </li>
+    <button ng-click="save()">保存</button>
+</ul>
+<div ng-controller="Model_A_1"><b class="keywords_title" ng-bind="module.config.title"></b>
+    <span ng-repeat="item in model"><a ng-href="{{item.url}}" ng-bind="item.text" target="_blank"></a></span>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
