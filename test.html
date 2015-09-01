@@ -1,23 +1,61 @@
 <!DOCTYPE html>
-<html ng-app="gzlTmall">
+<html ng-app="tmApp">
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+
+    <link rel="stylesheet" href="/subject/edit/jqueryui/themes/base/jquery.ui.all.css">
+    <script src="/subject/edit/jqueryui/jquery-1.10.2.js"></script>
+    <script src="/subject/edit/jqueryui/ui/jquery.ui.core.js"></script>
+    <script src="/subject/edit/jqueryui/ui/jquery.ui.widget.js"></script>
+    <script src="/subject/edit/jqueryui/ui/jquery.ui.mouse.js"></script>
+    <script src="/subject/edit/jqueryui/ui/jquery.ui.button.js"></script>
+    <script src="/subject/edit/jqueryui/ui/jquery.ui.draggable.js"></script>
+    <script src="/subject/edit/jqueryui/ui/jquery.ui.sortable.js"></script>
+    <script src="/subject/edit/jqueryui/ui/jquery.ui.position.js"></script>
+    <script src="/subject/edit/jqueryui/ui/jquery.ui.resizable.js"></script>
+    <script src="/subject/edit/jqueryui/ui/jquery.ui.button.js"></script>
+    <script src="/subject/edit/jqueryui/ui/jquery.ui.dialog.js"></script>
+    <script src="/subject/edit/jqueryui/ui/jquery.ui.effect.js"></script>
     <script src="scripts/Angular.js"></script>
+    <script src="config.js"></script>
+    <script src="service.js"></script>
+    <script src="directive.js"></script>
+    <script src="controller.js"></script>
     <script src="scopeJson.js"></script>
-    <script src="ajaxHandler.js"></script>
+    <style>
+        ul,li{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        ul li{
+            border: 1px solid #CCC;
+            background: #FFF;
+            padding: 5px 10px;
+        }
+        ul li.ui-sortable{
+            cursor: move;
+        }
+    </style>
 </head>
 <body>
-<ul ng-controller="Model_A_1">
-    <li ng-repeat="item in model">
-        <input type="text" ng-model="item.text"/>
-        <input type="text" ng-model="item.url"/>
-    </li>
+<div ng-controller="Model_A_1">
+    <ul ng-draggable>
+        <li ng-repeat="item in model">
+            <input type="text" ng-model="item.text"/>
+            <input type="text" ng-model="item.url"/>
+        </li>
+
+    </ul>
     <button ng-click="save()">保存</button>
-</ul>
-<div ng-controller="Model_A_1"><b class="keywords_title" ng-bind="module.config.title"></b>
-    <span ng-repeat="item in model"><a ng-href="{{item.url}}" ng-bind="item.text" target="_blank"></a></span>
+    <button ng-click="raw()">源代码</button>
+    <a href="" ng-click="addItem()">添加一项</a>
 </div>
+
+<div tm-brand></div>
+<br>
+<textarea name="" id="js-show-raw" cols="100" rows="30"></textarea>
 <script src="app.js"></script>
 </body>
 </html>

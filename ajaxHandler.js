@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2015/9/1.
  */
-var ajaxHandler=angular.module('ajaxHandler',[]);
+var ajaxHandler=angular.module('tmAjaxHandler',[]);
 ajaxHandler.config(function($httpProvider){
 
     $httpProvider.defaults.transformRequest = function(obj){
@@ -17,7 +17,7 @@ ajaxHandler.config(function($httpProvider){
     };
 
 });
-ajaxHandler.factory('SaveData',['$http',function($http){
+ajaxHandler.factory('tmSaveData',['$http',function($http){
     return function(data){
         var url="/subject/edit/priceEidtor4.0/edit.ashx";
         var filename='141222_tmall';
