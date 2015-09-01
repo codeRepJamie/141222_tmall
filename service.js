@@ -21,7 +21,7 @@ service.factory('tmSaveData',['$http',function($http){
                 alert('ok');
             })
             .error(function(){
-                document.location.reload();
+                //document.location.reload();
             });
     };
 }]);

@@ -1,5 +1,16 @@
-<div id="js-brand-mod" ng-controller="Model_A_1">
+<section id="js-brand-mod">
     <!-- 店招 -->
-    <b class="keywords_title" ng-bind="module.config.title"></b>
-    <span ng-repeat="item in model"><a ng-href="{{item.url}}" ng-bind="item.text" target="_blank"></a></span>
-</div>
+    <div tm-mod-template tm-mod-name="brand" tm-item-name="hot_search_repeat">
+        <b class="keywords_title" ng-bind="items.config.title"></b>
+        <span ng-repeat="item in model track by $index">
+            <a ng-href="{{item.url}}" ng-bind="item.text" target="_blank"></a>
+        </span>
+    </div>
+    <!-- 导航 -->
+    <div tm-mod-template tm-mod-name="brand" tm-item-name="menu_repeat">
+        <b class="keywords_title" ng-bind="items.config.title"></b>
+        <span ng-repeat="item in model track by $index">
+            <a ng-href="{{item.url}}" ng-bind="item.text" target="_blank"></a>
+        </span>
+    </div>
+</section>

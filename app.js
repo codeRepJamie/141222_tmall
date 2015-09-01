@@ -7,7 +7,8 @@ var app=angular.module('tmApp',[
     'tmService', /*ajax方法库*/
     'tmDirective', /*ajax方法库*/
     'tmDataScope', /*加载数据库*/
-    'tmController' /*加载数据库*/
+    'tmController', /*加载数据库*/
+    'tmfilter' /*加载数据库*/
 ]);
 
 app.run(['$rootScope','sData',function($rootScope,sData){

@@ -1,0 +1,13 @@
+<div ng-controller="model_A">
+    <ul tm-draggable>
+        <li ng-repeat="item in model">
+            <input type="text" ng-model="item.text"/>
+            <input type="text" ng-model="item.url"/>
+            <a href="javascript:void(0);" class="close" ng-click="delete($index)">X</a>
+        </li>
+
+    </ul>
+    <button ng-click="save()">保存</button>
+    <button ng-click="raw()">源代码</button>
+    <a href="" ng-click="addItem()">添加一项</a>
+</div>

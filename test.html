@@ -5,6 +5,7 @@
     <title></title>
 
     <link rel="stylesheet" href="/subject/edit/jqueryui/themes/base/jquery.ui.all.css">
+    <script src="extend.js"></script>
     <script src="/subject/edit/jqueryui/jquery-1.10.2.js"></script>
     <script src="/subject/edit/jqueryui/ui/jquery.ui.core.js"></script>
     <script src="/subject/edit/jqueryui/ui/jquery.ui.widget.js"></script>
@@ -22,6 +23,7 @@
     <script src="service.js"></script>
     <script src="directive.js"></script>
     <script src="controller.js"></script>
+    <script src="filter.js"></script>
     <script src="scopeJson.js"></script>
     <style>
         ul,li{
@@ -40,22 +42,18 @@
     </style>
 </head>
 <body>
-<div ng-controller="Model_A_1">
-    <ul ng-draggable>
-        <li ng-repeat="item in model">
-            <input type="text" ng-model="item.text"/>
-            <input type="text" ng-model="item.url"/>
-        </li>
 
-    </ul>
-    <button ng-click="save()">保存</button>
-    <button ng-click="raw()">源代码</button>
-    <a href="" ng-click="addItem()">添加一项</a>
-</div>
+<div tm-control-model-A-1></div>
 
-<div tm-brand></div>
+<div tm-control-model-A-2></div>
+
+
+    <div tm-view-brand ></div>
+
+
+
 <br>
-<textarea name="" id="js-show-raw" cols="100" rows="30"></textarea>
+<textarea ng-controller="mod_raw_textarea" name="" id="js-show-raw" cols="100" rows="30" ng-bind="rawCode"></textarea>
 <script src="app.js"></script>
 </body>
 </html>
