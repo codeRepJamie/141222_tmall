@@ -3,13 +3,13 @@
  */
 var directive=angular.module('tmDirective',[]);
 
-directive.directive('tmViewBrand', function() {
+/*directive.directive('tmViewBrand', function() {
     return {
         restrict: 'A',
         templateUrl: 'directive/view/brand.html',
         replace: true
     };
-});
+});*/
 
 directive.directive('tmControlModelA1', function() {
     return {
@@ -27,20 +27,76 @@ directive.directive('tmControlModelA2', function() {
     };
 });
 
-directive.directive('tmModTemplate',function() {
+directive.directive('tmParent',function() {
     return{
+        scope:{
+            moduleName:'@tmModName'
+        },
+        link:function($scope, $element,$attrs){
+            $scope.getContentUrl = function() {
+                return 'directive/view/'+$scope.moduleName+'/'+$scope.moduleName+'.html';
+            };
+            //$element.append('<div class="editMaskHover hidden"></div>');
+        },
+        replace:true,
+        transclude: true,
+        template: '<div ng-include="getContentUrl()"></div>',
+        controller:function($scope, $element){
+
+            /*$element.addEventListener('mouseover',function(){
+                $(this).addClass();
+            });*/
+            $scope.js_show_dialog=function(){
+                //console.log($().dialog);
+
+                $('#dialog').dialog({
+                    title:'标题',
+                    autoOpen: false,
+                    height: 600,
+                    width: 990,
+                    modal: true,
+                    buttons: {
+                        "保存": function() {
+                            //$( this ).dialog( "close" );
+                            /*rawfn&&rawfn();
+                            _this.saveSimpleDate.call(_this,name);
+                            viewRawCode(this,_this,name);*/
+                        },
+                        "查看源代码": function() {
+                            /*rawfn&&rawfn();
+                            viewRawCode(this,_this,name);*/
+                        },
+                        "设置": function() {
+                           /* _this.dialogSetting(name,fn);
+                            $(this).siblings('.ui-dialog-buttonpane').find('.ui-button:eq(0)').attr('disabled',false).removeClass('ui-state-disabled');
+                            $(this).siblings('.ui-dialog-buttonpane').find('.ui-button:eq(1)').attr('disabled',false).removeClass('ui-state-disabled');
+                            $(this).siblings('.ui-dialog-buttonpane').find('.ui-button:eq(2)').attr('disabled',true).addClass('ui-state-disabled').removeClass('ui-state-hover ui-state-focus');*/
+                        },
+                        "关闭": function() {
+                            /*$( this ).dialog( "close" );*/
+                        }
+                    },
+                    close: function() {
+
+                    }
+                });
+            }
+        }
+    }
+});
+
+
+directive.directive('tmElemtaryReapeat',function() {
+    return{
+        //require:'^tmParent',
         scope:{
             moduleName:'@tmModName',
             itemName:'@tmItemName'
         },
         link:function($scope, $element,$attrs){
-            /*module=$scope.module;
-            items=$scope.items;
-            url='directive/view/'+module+'_'+items+'.html';*/
             $scope.getContentUrl = function() {
-                return 'directive/view/'+$scope.moduleName+'_'+$scope.itemName+'.html';
+                return 'directive/view/'+$scope.moduleName+'/'+$scope.itemName+'.html';
             };
-            $scope.model=$scope.items.model
         },
         replace:true,
         template: '<div ng-include="getContentUrl()"></div>',
@@ -48,7 +104,6 @@ directive.directive('tmModTemplate',function() {
             $scope.module=$rootscope[$scope.moduleName];
             $scope.items=$scope.module[$scope.itemName];
             $scope.model=$scope.items.model;
-            console.log($scope.module);
         }
     }
 });

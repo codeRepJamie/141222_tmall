@@ -1,0 +1,25 @@
+<section id="js-brand-mod" ng-click="js_show_dialog()">
+    <div class="headerStyle">
+        <div class="header">
+            <a class="logo" href="//cgzl.alitrip.com/?scene=taobao_shop/"></a>
+            <div class="sform">
+                <form class="focus" name="SearchForm" action="//cgzl.alitrip.com/?scene=taobao_shop" method="post">
+                    <input name="search" type="hidden" value="y" />
+                    <div class="keyword">
+                        <input class="keyword-input prompt" name="keyword" size="12" />
+                    </div>
+                    <span class="submit"><input class="btn" type="submit" value="" /></span>
+                </form>
+                <div class="keywords">
+                    <div class="keywords_sform">
+                        <!-- 店招 -->
+                        <div tm-elemtary-reapeat tm-mod-name="{{moduleName}}" tm-item-name="hot_search_repeat"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 导航 -->
+        <div tm-elemtary-reapeat tm-mod-name="{{moduleName}}" tm-item-name="menu_repeat"></div>
+    </div>
+</section>
+

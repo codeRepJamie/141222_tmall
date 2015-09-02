@@ -2,7 +2,7 @@
 dataScope.factory('sData',function(){
     var root={};
     <!-- {line#0} -->
-    root.brand={$remark#0};
+    root.headerStyle={$remark#0};
     <!-- {/line} -->
     return root;
 });

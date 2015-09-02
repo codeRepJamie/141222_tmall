@@ -1,0 +1,9 @@
+<div>
+    <!-- 店招 repeater-->
+    <div>
+        <b class="keywords_title" ng-bind="items.config.title">热搜:</b>
+        <span ng-repeat="item in model track by $index">
+            <a ng-href="{{item.url}}" ng-bind="item.text" target="_blank"></a>
+        </span>
+    </div>
+</div>

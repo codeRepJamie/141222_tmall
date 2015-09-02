@@ -6,6 +6,8 @@ var controller=angular.module('tmController',[]);
     $scope.module=$rootscope.brand;
     //$scope.items=$scope.module.hot_search_repeat;
 }]);*/
+/*controller.controller('tmParent',['$scope',function($scope){
+}]);*/
 //Model_A_1
 controller.controller('model_A',[
     '$scope',

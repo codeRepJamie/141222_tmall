@@ -2,7 +2,7 @@
 dataScope.factory('sData', function () {
     var root = {};
 
-    root.brand = {
+    root.headerStyle = {
         "config": {"title": "店招", "node-type": "parent"},
         "hot_search_repeat": {
             "config": {"title": "热搜123", "node-type": "elemtary-reapeat"},
@@ -24,7 +24,7 @@ dataScope.factory('sData', function () {
             }]
         },
         "menu_repeat": {
-            "config": {"title": "导航栏", "node-type": "elemtary-reapeat","max":10},
+            "config": {"title": "导航栏", "node-type": "elemtary-reapeat", "max": 10},
             "model": [{"url": "http://www.baidu.com", "text": "首页", "$$hashKey": "object:5"}, {
                 "value": "",
                 "$$hashKey": "object:7",
