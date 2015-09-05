@@ -33,46 +33,41 @@ directive.directive('tmParent',function() {
             moduleName:'@tmModName'
         },
         link:function($scope, $element,$attrs){
-            $scope.getContentUrl = function() {
-                return 'directive/view/'+$scope.moduleName+'/'+$scope.moduleName+'.html';
-            };
-            //$element.append('<div class="editMaskHover hidden"></div>');
+            $element.append('<div class="editMaskHover hidden"></div>');
         },
         replace:true,
-        transclude: true,
-        template: '<div ng-include="getContentUrl()"></div>',
+        templateUrl: function(elem, attr){
+            return 'directive/view/'+attr.tmModName+'/'+attr.tmModName+'.html';
+        },
         controller:function($scope, $element){
-
-            /*$element.addEventListener('mouseover',function(){
-                $(this).addClass();
-            });*/
+            this.moduleName=$scope.moduleName;
+            this.module=$rootscope[$scope.moduleName];
             $scope.js_show_dialog=function(){
-                //console.log($().dialog);
 
                 $('#dialog').dialog({
-                    title:'±ÍÃ‚',
+                    title:'Ê†áÈ¢ò',
                     autoOpen: false,
                     height: 600,
                     width: 990,
                     modal: true,
                     buttons: {
-                        "±£¥Ê": function() {
+                        "‰øùÂ≠ò": function() {
                             //$( this ).dialog( "close" );
                             /*rawfn&&rawfn();
                             _this.saveSimpleDate.call(_this,name);
                             viewRawCode(this,_this,name);*/
                         },
-                        "≤Èø¥‘¥¥˙¬Î": function() {
+                        "Êü•ÁúãÊ∫ê‰ª£Á†Å": function() {
                             /*rawfn&&rawfn();
                             viewRawCode(this,_this,name);*/
                         },
-                        "…Ë÷√": function() {
+                        "ËÆæÁΩÆ": function() {
                            /* _this.dialogSetting(name,fn);
                             $(this).siblings('.ui-dialog-buttonpane').find('.ui-button:eq(0)').attr('disabled',false).removeClass('ui-state-disabled');
                             $(this).siblings('.ui-dialog-buttonpane').find('.ui-button:eq(1)').attr('disabled',false).removeClass('ui-state-disabled');
                             $(this).siblings('.ui-dialog-buttonpane').find('.ui-button:eq(2)').attr('disabled',true).addClass('ui-state-disabled').removeClass('ui-state-hover ui-state-focus');*/
                         },
-                        "πÿ±’": function() {
+                        "ÂÖ≥Èó≠": function() {
                             /*$( this ).dialog( "close" );*/
                         }
                     },
@@ -88,23 +83,27 @@ directive.directive('tmParent',function() {
 
 directive.directive('tmElemtaryReapeat',function() {
     return{
-        //require:'^tmParent',
+        require:'^tmParent',
         scope:{
-            moduleName:'@tmModName',
             itemName:'@tmItemName'
         },
-        link:function($scope, $element,$attrs){
+        //scope:false,
+        controller:function($scope){
+            $scope.$on('reDefinedScope',function(){
+                $scope.model=$scope.item.model;
+            });
+        },
+        link:function($scope, $element,$attrs,ctrls){
+            $scope.moduleName=ctrls.moduleName;
+            $scope.module=ctrls.module;
+            $scope.item=$scope.module[$scope.itemName];
             $scope.getContentUrl = function() {
                 return 'directive/view/'+$scope.moduleName+'/'+$scope.itemName+'.html';
             };
+            $scope.$broadcast('reDefinedScope');
         },
         replace:true,
-        template: '<div ng-include="getContentUrl()"></div>',
-        controller:function($scope){
-            $scope.module=$rootscope[$scope.moduleName];
-            $scope.items=$scope.module[$scope.itemName];
-            $scope.model=$scope.items.model;
-        }
+        template: '<div ng-include="getContentUrl()"></div>'
     }
 });
 
@@ -112,7 +111,7 @@ directive.directive('tmElemtaryReapeat',function() {
 directive.directive('tmDraggable',function() {
     return {
         restrict : 'A',
-        link : function($scope, $element,$attrs) {
+        link : function($scope, $element) {
             //using iCheck
             var start=0;
                 $($element).sortable({
