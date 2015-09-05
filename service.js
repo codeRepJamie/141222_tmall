@@ -17,7 +17,7 @@ service.factory('tmSaveData',['$http',function($http){
         $http.post(url,postData,'')
             .success(function(){
                 var url='/subject/edit/priceEidtor4.0/create.ashx';
-                $http.post(url,{ path: filename },'')
+                $http.post(url,{ path: filename },'');
                 alert('ok');
             })
             .error(function(){
@@ -26,13 +26,14 @@ service.factory('tmSaveData',['$http',function($http){
     };
 }]);
 
-//±£´æ·þÎñ
-service.factory('tmModel',['$http',function($http){
-    return function(){
-        var scope={};
-        scope.module=$rootscope['brand'];
-        scope.items=scope.module['hot_search_repeat'];
-        scope.model=scope.items.model;
-        return scope
+//Model_A_1
+service.factory('tmModel',function($rootScope){
+    return {
+        getItem:function(mod,item){
+            return $rootScope.data[mod][item];
+        },
+        getModel:function(mod,item){
+            return $rootScope.data[mod][item]['model'];
+        }
     }
-}]);
+});

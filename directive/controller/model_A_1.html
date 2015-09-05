@@ -1,14 +1,11 @@
-<div ng-controller="model_A">
-    <input type="text" ng-model="items.config.title"/>
+<div class="model">
+    <div class="title">设置标题:<input type="text" ng-model="item.config.title"/>:<a class="funcLink" href="javascript:void(0);" ng-click="addItem()">添加一项</a></div>
     <ul tm-draggable>
-        <li ng-repeat="item in model">
+        <li ng-class-odd="'odds'" ng-repeat="item in model">
             <input type="text" ng-model="item.text"/>
             <input type="text" ng-model="item.url"/>
-            <a href="javascript:void(0);" class="close" ng-click="delete($index)">X</a>
+            <a href="javascript:void(0);" class="ui-button-icon-primary ui-icon ui-icon-closethick close" ng-click="delete($index)"></a>
         </li>
 
     </ul>
-    <button ng-click="save()">保存</button>
-    <button ng-click="raw()">源代码</button>
-    <a href="" ng-click="addItem()">添加一项</a>
 </div>

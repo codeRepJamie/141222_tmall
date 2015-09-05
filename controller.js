@@ -9,32 +9,41 @@ var controller=angular.module('tmController',[]);
 /*controller.controller('tmParent',['$scope',function($scope){
 }]);*/
 //Model_A_1
-controller.controller('model_A',[
+controller.controller('viewControl',[
+    '$scope',
+    function($scope) {
+        $scope.content = '213';
+    }
+]);
+
+
+/*controller.controller('viewControl',[
     '$scope',
     'tmSaveData',
     'tmModel',
     '$filter',
-        function($scope,tmSaveData,tmModel,$filter){
-            //console.log($scope);
-            $scope.save=function(){
-                tmSaveData($scope.module);
-            };
-            $scope.raw=function(){
-                document.getElementById('js-show-raw').value=$filter('toRaw')(document.getElementById('js-brand-mod').innerHTML);
-            };
-            $scope.addItem=function(){
-                var item={};
-                for(value in $scope.model[0]){
-                    item.value='';
-                }
-                console.dir(item);
-                $scope.model.push(item);
-            };
-            $scope.delete=function(i){
-                $scope.model.splice(i,1);
-            }
-        }
-    ]);
+    function($scope,tmSaveData,tmModel,$filter){
+        //console.log($scope);
+        /!* $scope.save=function(){
+         tmSaveData($scope.module);
+         };
+         $scope.raw=function(){
+         document.getElementById('js-show-raw').value=$filter('checkRaw')(document.getElementById('js-brand-mod').innerHTML);
+         };
+         $scope.addItem=function(){
+         var item={};
+         for(value in $scope.model[0]){
+         item.value='';
+         }
+         console.dir(item);
+         $scope.model.push(item);
+         };
+         $scope.delete=function(i){
+         $scope.model.splice(i,1);
+         }*!/
+    }
+]);*/
+
 controller.controller('mod_raw_textarea',['$scope','$filter',function($scope,$filter){
     /*$scope.rawCode='';
     $scope.$watch(function(){

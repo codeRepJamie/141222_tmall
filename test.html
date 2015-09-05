@@ -5,6 +5,7 @@
     <title></title>
     <link rel="stylesheet" href="css/header.css"/>
     <link rel="stylesheet" href="css/css.min.css"/>
+    <link rel="stylesheet" href="//g.tbcdn.cn/??mui/global/1.2.42/global.css,tm/shop/1.2.2/app.css,tm/shop/1.2.2/page/shop.css"/>
     <link rel="stylesheet" href="/subject/edit/jqueryui/themes/base/jquery.ui.all.css">
 
     <script src="extend.js"></script>
@@ -34,33 +35,65 @@
             list-style: none;
         }
         ul li{
-            border: 1px solid #CCC;
             background: #FFF;
             padding: 5px 10px;
         }
         ul li.ui-sortable{
             cursor: move;
         }
+        .ui-dialog .ui-dialog-content{
+            overflow: hidden;
+        }
+        .raw-textarea{
+            width: 100%;
+            height: 100%;
+
+        }
+        .editMaskHover {
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.3);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .model{
+            margin-bottom: 15px;
+        }
+        .model .title{
+            margin-bottom: 5px;
+            background-color: #f0f0f0;
+            padding: 5px;
+        }
+        .model .title .funcLink {
+            color: blue;
+            margin-left: 5px;
+            outline: none;
+        }
+        .model ul li{
+            padding: 5px;
+        }
+        .model ul li.odds{
+            background-color: #f0f0f0;
+        }
+        .model ul li .ui-icon{
+            float: right;
+            margin: 4px 4px 0 0;
+        }
     </style>
 </head>
 <body>
-<div id="dialog">
-    <div tm-control-model-A-1></div>
 
-    <div tm-control-model-A-2></div>
-</div>
+   <!-- <div tm-control-model-A-1></div>
 
-
-    <div tm-parent tm-mod-name="headerStyle">123</div>
+    <div tm-control-model-A-2></div>-->
 
 
 
+    <div tm-parent tm-mod-name="headerStyle"></div>
+   <div id="dialog" ng-controller="viewControl">
 
-
-
-
-<br>
-<textarea ng-controller="mod_raw_textarea" name="" id="js-show-raw" cols="100" rows="30" ng-bind="rawCode"></textarea>
+   </div>
 <script src="app.js"></script>
 </body>
 </html>

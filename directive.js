@@ -3,19 +3,33 @@
  */
 var directive=angular.module('tmDirective',[]);
 
-/*directive.directive('tmViewBrand', function() {
-    return {
-        restrict: 'A',
-        templateUrl: 'directive/view/brand.html',
-        replace: true
+function bindPannel($scope){
+    $scope.addItem=function() {
+        var item = {};
+        for (value in $scope.model) {
+            item.value = '';
+        }
+        $scope.model.push(item);
     };
-});*/
+    $scope.delete=function(i){
+        $scope.model.splice(i,1);
+    }
+};
 
 directive.directive('tmControlModelA1', function() {
     return {
         restrict: 'A',
+        scope:{
+            moduleName:'@tmModName',
+            itemName:'@tmItemName'
+        },
         templateUrl: 'directive/controller/model_A_1.html',
-        replace: true
+        replace: true,
+        controller:function($scope,tmModel){
+            bindPannel($scope);
+            $scope.item=tmModel.getItem($scope.moduleName,$scope.itemName);
+            $scope.model=tmModel.getModel($scope.moduleName,$scope.itemName);
+        }
     };
 });
 
@@ -27,55 +41,93 @@ directive.directive('tmControlModelA2', function() {
     };
 });
 
-directive.directive('tmParent',function() {
+directive.directive('tmParent',function($compile) {
     return{
         scope:{
             moduleName:'@tmModName'
         },
         link:function($scope, $element,$attrs){
-            $element.append('<div class="editMaskHover hidden"></div>');
+            $scope.isHide=true;
+            var shadow=angular.element('<div class="editMaskHover" ng-hide="{{isHide}}"></div>');
+
+            $element.css({
+                position:'relative',
+                cursor:'pointer',
+                overflow:'hidden'
+            });
+
+            $element.append($compile(shadow)($scope));
+
+            $element.bind('mouseover',function(){
+
+                $scope.isHide=true;
+                $scope.$apply();
+                $compile(shadow)($scope);
+            });
+
+            $element.bind('mouseout',function(){
+
+                $scope.isHide=false;
+                $scope.$apply();
+                $compile(shadow)($scope);
+            });
         },
         replace:true,
         templateUrl: function(elem, attr){
             return 'directive/view/'+attr.tmModName+'/'+attr.tmModName+'.html';
         },
-        controller:function($scope, $element){
+        controller:function($rootScope,$scope, $element,$filter,tmSaveData){
+            var scope=$scope;
             this.moduleName=$scope.moduleName;
-            this.module=$rootscope[$scope.moduleName];
-            $scope.js_show_dialog=function(){
+            $scope.module=this.module=$rootScope.data[$scope.moduleName];
 
-                $('#dialog').dialog({
-                    title:'标题',
-                    autoOpen: false,
-                    height: 600,
-                    width: 990,
-                    modal: true,
-                    buttons: {
-                        "保存": function() {
-                            //$( this ).dialog( "close" );
-                            /*rawfn&&rawfn();
-                            _this.saveSimpleDate.call(_this,name);
-                            viewRawCode(this,_this,name);*/
-                        },
-                        "查看源代码": function() {
-                            /*rawfn&&rawfn();
-                            viewRawCode(this,_this,name);*/
-                        },
-                        "设置": function() {
-                           /* _this.dialogSetting(name,fn);
-                            $(this).siblings('.ui-dialog-buttonpane').find('.ui-button:eq(0)').attr('disabled',false).removeClass('ui-state-disabled');
-                            $(this).siblings('.ui-dialog-buttonpane').find('.ui-button:eq(1)').attr('disabled',false).removeClass('ui-state-disabled');
-                            $(this).siblings('.ui-dialog-buttonpane').find('.ui-button:eq(2)').attr('disabled',true).addClass('ui-state-disabled').removeClass('ui-state-hover ui-state-focus');*/
-                        },
-                        "关闭": function() {
-                            /*$( this ).dialog( "close" );*/
-                        }
-                    },
-                    close: function() {
-
-                    }
-                });
+            function setPannel(){
+                $rootScope.dialogForm.html($compile(angular.element('<div tm-mod-name="'+scope.moduleName+'" tm-item-name="hot_search_repeat" tm-control-model-A-1></div>'))($scope));
             }
+
+            $element.bind('click',function(){
+                setPannel();
+                var element=$element;
+                $rootScope.dialogForm.dialog("option",{
+                    title:'设置'+scope.module.config.title,
+                    'buttons':[
+                        {
+                            text:"保存",
+                            click:function(){
+                                tmSaveData(scope.module)
+                            }
+                        },
+                        {
+                            text:"查看源代码",
+                            id:'js-check-raw-bottom',
+                            click:function(){
+                                $('#js-check-raw-bottom').button("disable");
+                                $('#js-setup-bottom').button("enable");
+                                $rootScope.dialogForm.dialog("option",'title','查看'+scope.module.config.title+'源代码');
+                                $rootScope.dialogForm.html('<textarea class="raw-textarea">'+$filter('checkRaw')(element.html())+'</textarea>');
+                            }
+                        },
+                        {
+                            text:"设置",
+                            id:'js-setup-bottom',
+                            disabled:true,
+                            click:function() {
+                                $('#js-setup-bottom').button("disable");
+                                $('#js-check-raw-bottom').button("enable");
+                                $rootScope.dialogForm.dialog("option",'title','设置'+scope.module.config.title);
+                                setPannel();
+                            }
+                        },
+                        {
+                            text:"关闭",
+                            click:function() {
+                                $(this).dialog("close");
+                            }
+                        }
+                    ]
+                });
+                $rootScope.dialogForm.dialog("open");
+            })
         }
     }
 });
@@ -87,19 +139,20 @@ directive.directive('tmElemtaryReapeat',function() {
         scope:{
             itemName:'@tmItemName'
         },
-        //scope:false,
+        //tranclude:true,
         controller:function($scope){
             $scope.$on('reDefinedScope',function(){
                 $scope.model=$scope.item.model;
             });
+            $scope.getContentUrl = function() {
+                return 'directive/view/'+$scope.moduleName+'/'+$scope.itemName+'.html';
+            };
         },
         link:function($scope, $element,$attrs,ctrls){
             $scope.moduleName=ctrls.moduleName;
             $scope.module=ctrls.module;
             $scope.item=$scope.module[$scope.itemName];
-            $scope.getContentUrl = function() {
-                return 'directive/view/'+$scope.moduleName+'/'+$scope.itemName+'.html';
-            };
+
             $scope.$broadcast('reDefinedScope');
         },
         replace:true,
@@ -121,7 +174,9 @@ directive.directive('tmDraggable',function() {
                         start= ui.item.index();
                     },
                     stop:function(event, ui ){
-                        $scope.$root.model.movePos(start,ui.item.index());
+                        //console.log($scope);
+                        $scope.model.movePos(start,ui.item.index());
+                        //$scope.$root.model.movePos(start,ui.item.index());
                         $scope.$apply();
                     }
                 });
