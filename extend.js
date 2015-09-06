@@ -10,19 +10,19 @@ Array.prototype.movePos=function(n,m){
         return this;
     }
     else{
-        if(n>m)//ÏòÇ°ÒÆ¶¯>¶ÔÁ½¸öË÷ÒýÎ»ÖÃ¼°ÆäÖÐ¼äµÄÔªËØÖØÐÂ¸³Öµ[Ë³ÍÆ]
+        if(n>m)//å‘å‰ç§»åŠ¨>å¯¹ä¸¤ä¸ªç´¢å¼•ä½ç½®åŠå…¶ä¸­é—´çš„å…ƒç´ é‡æ–°èµ‹å€¼[é¡ºæŽ¨]
         {
 
-            temp=[this[m],this[m]=this[n]][0];//½»»»nºÍmµÄÖµ²¢½«mÉÏµÄÖµ¸³¸øtemp
+            temp=[this[m],this[m]=this[n]][0];//äº¤æ¢nå’Œmçš„å€¼å¹¶å°†mä¸Šçš„å€¼èµ‹ç»™temp
             for(var i=m+1; i<=n; i++)
             {
                 temp=[this[i],this[i]=temp][0];
             }
 
         }
-        else{//ÏòºóÒÆ¶¯>¶ÔÁ½¸öË÷ÒýÎ»ÖÃ¼°ÆäÖÐ¼äµÄÔªËØÖØÐÂ¸³Öµ[µ¹ÍÆ]
+        else{//å‘åŽç§»åŠ¨>å¯¹ä¸¤ä¸ªç´¢å¼•ä½ç½®åŠå…¶ä¸­é—´çš„å…ƒç´ é‡æ–°èµ‹å€¼[å€’æŽ¨]
 
-            temp=[this[m],this[m]=this[n]][0];//½»»»nºÍmµÄÖµ²¢½«mÉÏµÄÖµ¸³¸øtemp
+            temp=[this[m],this[m]=this[n]][0];//äº¤æ¢nå’Œmçš„å€¼å¹¶å°†mä¸Šçš„å€¼èµ‹ç»™temp
             for(var i=m-1; i>=n; i--)
             {
                 temp=[this[i],this[i]=temp][0];

@@ -2,7 +2,7 @@
  * Created by Administrator on 2015/9/1.
  */
 var service=angular.module('tmService',[]);
-//±£´æ·şÎñ
+//ä¿å­˜æœåŠ¡
 service.factory('tmSaveData',['$http',function($http){
     return function(data){
         var url="/subject/edit/priceEidtor4.0/edit.ashx";
