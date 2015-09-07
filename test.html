@@ -1,11 +1,119 @@
 <!DOCTYPE html>
 <html ng-app="tmApp">
 <head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
+    <meta name="oversea" content="false"/>
+    <meta name="data-spm" content="a1z10"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK"/>
+    <meta name="description" content="淘宝, 店铺, 旺铺, 广之旅旗舰店"/>
+    <meta name="keywords" content="欢迎前来淘宝网广之旅旗舰店 旺铺，众多商品任你选购"/>
+    <meta name="microscope-data" content="pageId=722385857;prototypeId=1;siteCategory=3;siteInstanceId=228672446;shopId=110278490;userId=2067413496"/>
+
+    <title>
+        首页-广之旅旗舰店-天猫Tmall.com
+    </title>
+
+    <link rel="shortcut icon" href="http://a.tbcdn.cn/p/mall/base/favicon.ico" type="image/x-icon"/>
+    <!--newTMall-->
+
+
+    <link rel="stylesheet"  href="//g.tbcdn.cn/??mui/global/1.2.42/global.css,tm/shop/1.2.2/app.css,tm/shop/1.2.2/page/shop.css"/>
+
+    <!--head fix rgn-->
+    <style>
+        #header .hot-query {
+            *height: 14px
+        }
+
+        #header .hot-query li {
+            display: inline-block;
+            *zoom: 1;
+            *display: inline;
+            border-left: 1px solid #ccc;
+            line-height: 1.1;
+            *line-height: 1.2;
+            padding: 0 12px;
+        }
+
+        body #tstart {
+            right: 35px
+        }
+
+        body #mallPage #header.mui-global-header-fixed {
+            overflow: visible;
+        }
+
+        .mui-global-nav-list {
+            -webkit-transform: translateZ(0)
+        }
+
+        body #mallSearch button {
+            position: absolute
+        }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="http://g.tbcdn.cn/shop/wangpu/1.0.0/global/copyright-min.css">
+
+    <link rel="stylesheet"
+          href="http://g.tbcdn.cn/shop/??wangpu/1.0.0/layout/layout-tmall-990-min.css,wangpu/1.0.0/global/copyright-min.css,modules/0.1.5/modules-tmall-default-min.css?t=20130725.css">
+    <!-- combo system module css -->
+    <link rel="stylesheet"
+          href="http://a.tbcdn.cn/??/apps/taesite/platinum/stylesheet/common/templates/tmall/pink/skin.css?t=20121031.css">
+    <!-- 独立模块css -->
+    <!-- pageCss in pagePrototype -->
+
+    <!--module_custom_css -->
+    <!--<link rel="stylesheet" href="http://img02.taobaocdn.com/bao/uploaded/i2/TB1bFnwGVXXXXbtapXXn00bFXXX.css"/>-->
+
+    <!-- pageJs in pagePrototype-->
+    <style>
+        #content .design-page {
+            position: relative;
+            z-index: 1000;
+            width: 950px;
+            margin: 0 auto;
+        }
+
+        #page #content #bd {
+            width: 100%
+        }
+    </style>
+    <!-- page_style -->
+    <style>
+        #page {
+
+            overflow: hidden;
+        }
+
+        #content {
+            background: url(about:blank) repeat left 0;
+        }
+
+        #hd {
+            background: url(http://img01.taobaocdn.com/bao/uploaded/i1/TB17FwzGVXXXXatXVXXSutbFXXX.jpg) no-repeat center 0 #FFFFFF;
+            margin-bottom: 0px;
+        }
+
+        #content #bd {
+            width: 1680px;
+            overflow: hidden;
+        }
+
+    </style>
+
+    <!-- trip assets -->
+
+    <link rel="shortcut icon" href="http://g.tbcdn.cn/trip/tools/img/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet"
+          href="http://g.tbcdn.cn/??tpi/topbar/1.1.19/global-min.css,tpi/header-footer/1.1.6/index-min.css,tpi/header-footer/1.1.6/tmall-shop-min.css,tpi/header-footer/1.1.6/tmall-footer-min.css">
+    <!--<script src="http://g.tbcdn.cn/??tpi/topbar/1.1.19/global-min.js"></script>-->
+    <!-- trip assets end -->
+    <link rel="stylesheet" href="">
+    <!--<link rel="stylesheet" href="http://img03.taobaocdn.com/bao/uploaded/i3/TB1rlAAGVXXXXaJXVXXn00bFXXX.css">-->
+
+
+
     <link rel="stylesheet" href="css/header.css"/>
     <link rel="stylesheet" href="css/css.min.css"/>
-    <link rel="stylesheet" href="//g.tbcdn.cn/??mui/global/1.2.42/global.css,tm/shop/1.2.2/app.css,tm/shop/1.2.2/page/shop.css"/>
     <link rel="stylesheet" href="/subject/edit/jqueryui/themes/base/jquery.ui.all.css">
 
     <script src="extend.js"></script>
@@ -29,20 +137,16 @@
     <script src="filter.js"></script>
     <script src="scopeJson.js"></script>
     <style>
-        ul,li{
-            padding: 0;
-            margin: 0;
-            list-style: none;
-        }
-        ul li{
-            background: #FFF;
-            padding: 5px 10px;
-        }
-        ul li.ui-sortable{
-            cursor: move;
-        }
+
         .ui-dialog .ui-dialog-content{
             overflow: hidden;
+        }
+        .pageTitle {
+            background: #D2FF00;
+            height: 40px;
+            font-size: 32px;
+            line-height: 32px;
+            padding: 5px 3px;
         }
         .raw-textarea{
             width: 100%;
@@ -82,18 +186,61 @@
         }
     </style>
 </head>
-<body>
+<body id="page">
+<div id="content" class="eshop head-expand tb-shop">
 
-   <!-- <div tm-control-model-A-1></div>
+<h1 class="pageTitle">天猫代码生成页面v1.0.0 更新日期20141224</h1>
 
-    <div tm-control-model-A-2></div>-->
+    <div id="hd">
+        <div class="layout grid-m J_TLayout" data-widgetid="6789938859" data-componentid="23" data-prototypeid="23"
+             data-id="6789938859" data-max="">
+            <div class="col-main">
+                <div class="main-wrap J_TRegion" data-modules="main" data-width="h950" data-max="">
+                    <div class="J_TModule" data-widgetid="8956358692" id="shop8956358692" data-componentid="5001"
+                         data-spm="110.0.5001-8956358692" microscope-data="5001-8956358692" data-title="店铺招牌">
+                        <!-- cache-info: componentId=5001 cacheKey=i-8956358692-10 cachedTime=2014-12-12 09:40:53 putHost=shopsystem010179175037.s.et2 expireTime=14400 -->
+                        <div class="skin-box tb-module tshop-pbsm tshop-pbsm-shop-custom-banner"
+                             style="position: relative;">
+                            <s class="skin-box-tp"><b></b></s>
+
+                            <div class="skin-box-hd disappear">
+                                <i class="hd-icon"></i>
+
+                                <h3><span>店标</span></h3>
+
+                                <div class="skin-box-act">
+                                    <a href="#" class="more">更多</a>
+                                </div>
+                            </div>
+                            <div class="skin-box-bd">
+                                <style>.grid-m .tshop-pbsm-shop-custom-banner .banner-box {
+                                    background: none repeat scroll 0 0 transparent !important;
+                                }
+
+                                .tshop-pbsm-shop-custom-banner .banner-box {
+                                    height: 120px !important;
+                                }
+
+                                .tshop-pbsm-shop-custom-banner {
+                                    height: 120px !important;
+                                }</style>
 
 
+                                <div>
 
-    <div tm-parent tm-mod-name="headerStyle"></div>
-   <div id="dialog" ng-controller="viewControl">
-
-   </div>
+                                    <div class="banner-box">
+                                        <div tm-parent tm-mod-name="headerStyle"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="dialog" ng-controller="viewControl"></div>
 <script src="app.js"></script>
 </body>
 </html>

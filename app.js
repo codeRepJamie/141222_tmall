@@ -14,19 +14,11 @@ var app=angular.module('tmApp',[
 app.run(['$rootScope','sData','tmSaveData',function($rootScope,sData,tmSaveData){
     $rootScope.data=sData;
     $rootScope.dialogForm=$('#dialog');
-    $rootScope.dialogForm.dialog({
-        height: 600,
-        width: 990,
-        autoOpen: false,
-        buttons: {
 
-        }
-        /*buttons: {
-            "保存":function(){
-                //$(this).dialog("close");
-                tmSaveData(tmCache.module)
-            }
-        }*/
+    $rootScope.dialogForm.dialog({
+        height: window.outerHeight*0.8,
+        width: window.outerWidth*0.8,
+        autoOpen: false
     });
     /*$rootScope.dialogForm.dialog({
         title:'标题',

@@ -5,16 +5,39 @@ var directive=angular.module('tmDirective',[]);
 
 function bindPannel($scope){
     $scope.addItem=function() {
-        var item = {};
-        for (value in $scope.model) {
-            item.value = '';
+        if(!$scope.item.config.max||($scope.model.length<$scope.item.config.max || alert('最多不能超过'+$scope.item.config.max+'项！'))){
+            var item = {};
+            for (value in $scope.model) {
+                item.value = '';
+            }
+            $scope.model.push(item);
         }
-        $scope.model.push(item);
     };
     $scope.delete=function(i){
         $scope.model.splice(i,1);
     }
 };
+
+directive.directive('tmControlModel', function() {
+    return {
+        restrict: 'A',
+        scope:{
+            moduleName:'@tmModName',
+            itemName:'@tmItemName'
+            //controller:'@tmModelController'
+        },
+        templateUrl: function(elem, attr){
+            console.log(attr.tmModelController);
+            return 'directive/controller/model_'+attr.tmModelController+'.html'
+        },
+        replace: true,
+        controller:function($scope,tmModel){
+            bindPannel($scope);
+            $scope.item=tmModel.getItem($scope.moduleName,$scope.itemName);
+            $scope.model=tmModel.getModel($scope.moduleName,$scope.itemName);
+        }
+    };
+});
 
 directive.directive('tmControlModelA1', function() {
     return {
@@ -36,8 +59,17 @@ directive.directive('tmControlModelA1', function() {
 directive.directive('tmControlModelA2', function() {
     return {
         restrict: 'A',
+        scope:{
+            moduleName:'@tmModName',
+            itemName:'@tmItemName'
+        },
         templateUrl: 'directive/controller/model_A_2.html',
-        replace: true
+        replace: true,
+        controller:function($scope,tmModel){
+            bindPannel($scope);
+            $scope.item=tmModel.getItem($scope.moduleName,$scope.itemName);
+            $scope.model=tmModel.getModel($scope.moduleName,$scope.itemName);
+        }
     };
 });
 
@@ -82,7 +114,20 @@ directive.directive('tmParent',function($compile) {
             $scope.module=this.module=$rootScope.data[$scope.moduleName];
 
             function setPannel(){
-                $rootScope.dialogForm.html($compile(angular.element('<div tm-mod-name="'+scope.moduleName+'" tm-item-name="hot_search_repeat" tm-control-model-A-1></div>'))($scope));
+                var controller='';
+                $rootScope.dialogForm.html('');
+
+                if(scope.module.hasOwnProperty){
+                    for(item in scope.module){
+                        if(item!='config'){
+                            controller+='<div tm-control-model tm-mod-name="'+scope.moduleName+'" tm-item-name="'+item+'" tm-model-controller="'+scope.module[item]['config']['controller']+'"></div>';
+                            //$rootScope.dialogForm.append($compile(angular.element(controller))($scope));
+                        }
+                    }
+                }
+                //console.log(controller);
+                $rootScope.dialogForm.html($compile(angular.element(controller))($scope));
+                //$rootScope.dialogForm.html($compile(angular.element('<div tm-mod-name="'+scope.moduleName+'" tm-item-name="hot_search_repeat" tm-control-model-A-1></div>'))($scope));
             }
 
             $element.bind('click',function(){
