@@ -1,0 +1,10 @@
+
+    <div class="skin_content ticket"><h4 ng-bind="item.config.title"></h4>
+        <ul>
+            <li ng-repeat="item in model track by $index">
+                <div class="s"><a ng-href="{{item.text | callcenterURL}}" target="_blank" >{{item.text}}
+                    <img ng-src="{{item.text | callcenterImg}}" />
+                </a></div>
+            </li>
+        </ul>
+    </div>

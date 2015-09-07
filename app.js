@@ -18,7 +18,14 @@ app.run(['$rootScope','sData','tmSaveData',function($rootScope,sData,tmSaveData)
     $rootScope.dialogForm.dialog({
         height: window.outerHeight*0.8,
         width: window.outerWidth*0.8,
-        autoOpen: false
+        autoOpen: false,
+        resizable: true,
+        modal: true,
+        dialogClass: "dialogForm",
+        open: function( event, ui ) {
+            //console.dir($(this).context);
+        },
+        position: { my: "center center", at: "center center" }
     });
     /*$rootScope.dialogForm.dialog({
         title:'标题',

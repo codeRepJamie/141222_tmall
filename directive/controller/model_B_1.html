@@ -1,0 +1,16 @@
+<div class="model">
+    <div class="title">设置{{item.config.title}}:<a class="funcLink" href="javascript:void(0);"
+                                                  ng-click="addItem()">添加一项</a></div>
+    <ul tm-draggable>
+        <li class="pic" ng-class-even="'even'" ng-repeat="item in model">
+            <img class="picture" ng-src="{{item.pic}}">
+
+            <div class="inputCont">
+                <p>图片地址:<input class="url" type="text" ng-model="item.pic"></p>
+                <p>目标地址:<input class="url" type="text" ng-model="item.url"></p>
+            </div>
+            <a href="javascript:void(0);" class="ui-button-icon-primary ui-icon ui-icon-closethick close" ng-click="delete($index)"></a>
+        </li>
+
+    </ul>
+</div>

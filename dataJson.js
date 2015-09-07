@@ -2,7 +2,7 @@
 
     headerStyle:{
         
-        'searchKeyword':{"config":{"title":"店招","node-type":"parent"},"hot_search_repeat":{"config":{"title":"热搜123567","node-type":"elemtary-reapeat","controller":"A_1"},"model":[{"value":"","$$hashKey":"object:7","text":"123888","url":"哈哈哈哈"},{"value":"","$$hashKey":"object:12","text":"改改个7777222","url":"硕士生123"},{"url":"http://www.baidu.com","text":"韩国","$$hashKey":"object:5"},{"value":"","$$hashKey":"object:35","text":"21312","url":"5555"}]},"menu_repeat":{"config":{"title":"导航栏","node-type":"elemtary-reapeat","max":10,"controller":"A_2"},"model":[{"value":"","$$hashKey":"object:7","text":"签证","url":"4569999999"},{"value":"","$$hashKey":"object:12","text":"环球卡","url":"硕士生123"},{"value":"","$$hashKey":"object:13","text":"出境","url":"123"},{"value":"","$$hashKey":"object:15","text":"导航","url":"66666"},{"value":"","$$hashKey":"object:11","text":"国内","url":"http://abc.com"},{"url":"http://www.baidu.com","text":"首页","$$hashKey":"object:5"}]}},
+        'searchKeyword':{"hot_search_repeat":{"config":{"title":"热搜123","node_type":"elemtary-reapeat","controller":"A_1"},"model":[{"value":"","$$hashKey":"object:7","text":"1991555","url":"哈哈哈哈"},{"value":"","$$hashKey":"object:12","text":"改改个7777222","url":"硕士生123"},{"url":"http://www.baidu.com","text":"韩国","$$hashKey":"object:5"},{"value":"","$$hashKey":"object:35","text":"213122222","url":"5555"}]},"menu_repeat":{"model":[{"value":"","$$hashKey":"object:7","text":"签证","url":"4569999999"},{"value":"","$$hashKey":"object:12","text":"环球卡","url":"硕士生123"},{"value":"","$$hashKey":"object:13","text":"出境","url":"123"},{"value":"","$$hashKey":"object:15","text":"导航","url":"66666"},{"value":"","$$hashKey":"object:11","text":"国内","url":"http://abc.com"},{"url":"http://www.baidu.com","text":"首页","$$hashKey":"object:5"}],"config":{"title":"导航栏","node-type":"elemtary-reapeat","max":10,"controller":"A_2"}},"config":{"title":"店铺招牌","node_type":"parent","data_num":0}},
 
         'navWords':{$remark#1}
         
@@ -41,9 +41,9 @@
                 </div>',
     banner:{
     
-    'bannerCont':[{"value":"http://img04.taobaocdn.com/imgextra/i4/2067413496/TB2rUY4dXXXXXXbXpXXXXXXXXXX_!!2067413496.jpg","url":"http://cgzl.tmall.com/p/tuesday.htm"},{"value":"http://img04.taobaocdn.com/imgextra/i4/2067413496/TB2Nvy9cFXXXXbyXXXXXXXXXXXX_!!2067413496.jpg","url":"http://cgzl.alitrip.com/category-1075577078.htm?spm=a1z10.1-b.w5001-10132340897.8.hNtnns&search=y&catName=%C4%EA%D6%D0%B4%F3%B4%D9&scene=taobao_shop"},{"value":"http://img04.taobaocdn.com/imgextra/i4/2067413496/TB29FzqcpXXXXajXpXXXXXXXXXX_!!2067413496.jpg","url":"http://cgzl.alitrip.com/p/beach.htm"},{"value":"http://img03.taobaocdn.com/imgextra/i3/2067413496/TB2LTBrbVXXXXatXpXXXXXXXXXX_!!2067413496.jpg","url":"http://cgzl.tmall.com/p/visa.htm"}],
+    'bannerCont':{"banner_pic_repeat":{"model":[{"value":"","$$hashKey":"object:25","pic":"https://img.alicdn.com/imgextra/i1/2067413496/TB2ikBPdVXXXXXpXXXXXXXXXXXX_!!2067413496.jpg","url":"http://cgzl.tmall.com/p/rd600857.htm"},{"value":"","$$hashKey":"object:7","pic":"https://img.alicdn.com/imgextra/i2/2067413496/TB2OTSIeVXXXXcfXXXXXXXXXXXX_!!2067413496.jpg","url":"http://cgzl.tmall.com/p/rd743438.htm"}]}},
 
-    'background':[]
+    'background':{$remark#1}
     
 },
 'bannerHTMLRepeatTemplate':'<li style="width:1920px;height:420px;padding:0px;margin:0px;">\
@@ -117,9 +117,9 @@
     </li>',
     callcenter:{
     
-    'holiday':[{"value":"叮当"},{"value":"坤坤"},{"value":"大吉"},{"value":"岚岚"},{"value":"米菲"}],
+    'holiday':{"travel_repeat":{"config":{"title":"旅游度假123","node-type":"elemtary-reapeat","max":10,"controller":"A_3"},"model":[{"value":"","$$hashKey":"object:7","text":"坤坤"}]},"ticket_repeat":{"config":{"title":"订房订票","node-type":"elemtary-reapeat","max":10,"controller":"A_3"},"model":[{"value":"","$$hashKey":"object:7","text":"云儿"}]},"config":{"title":"旺旺客服","node-type":"parent","data_num":2}},
 
-    'ticket':[{"value":"云儿"},{"value":"珊珊"},{"value":"斋斋"},{"value":"222222"},{"value":"3333333"},{"value":"333322222"}]
+    'ticket':{$remark#1}
     },
 
     'callcenterHTMLRepeatTemplate':'<li><div class="s"><a href="[[url]]" target="_blank">[[value]]<img src="[[pic]]" alt=""/></a></div></li>',

@@ -4,11 +4,11 @@
 var service=angular.module('tmService',[]);
 //保存服务
 service.factory('tmSaveData',['$http',function($http){
-    return function(data){
+    return function(data,num){
         var url="/subject/edit/priceEidtor4.0/edit.ashx";
         var filename='141222_tmall';
         var postData={
-            line: 0,
+            line: num,
             index: 5,
             value: encodeURI(JSON.stringify(data)),
             remark: 0,

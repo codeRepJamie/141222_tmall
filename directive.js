@@ -27,43 +27,8 @@ directive.directive('tmControlModel', function() {
             //controller:'@tmModelController'
         },
         templateUrl: function(elem, attr){
-            console.log(attr.tmModelController);
             return 'directive/controller/model_'+attr.tmModelController+'.html'
         },
-        replace: true,
-        controller:function($scope,tmModel){
-            bindPannel($scope);
-            $scope.item=tmModel.getItem($scope.moduleName,$scope.itemName);
-            $scope.model=tmModel.getModel($scope.moduleName,$scope.itemName);
-        }
-    };
-});
-
-directive.directive('tmControlModelA1', function() {
-    return {
-        restrict: 'A',
-        scope:{
-            moduleName:'@tmModName',
-            itemName:'@tmItemName'
-        },
-        templateUrl: 'directive/controller/model_A_1.html',
-        replace: true,
-        controller:function($scope,tmModel){
-            bindPannel($scope);
-            $scope.item=tmModel.getItem($scope.moduleName,$scope.itemName);
-            $scope.model=tmModel.getModel($scope.moduleName,$scope.itemName);
-        }
-    };
-});
-
-directive.directive('tmControlModelA2', function() {
-    return {
-        restrict: 'A',
-        scope:{
-            moduleName:'@tmModName',
-            itemName:'@tmItemName'
-        },
-        templateUrl: 'directive/controller/model_A_2.html',
         replace: true,
         controller:function($scope,tmModel){
             bindPannel($scope);
@@ -80,28 +45,22 @@ directive.directive('tmParent',function($compile) {
         },
         link:function($scope, $element,$attrs){
             $scope.isHide=true;
-            var shadow=angular.element('<div class="editMaskHover" ng-hide="{{isHide}}"></div>');
+            var shadow=angular.element('<div style="height:'+getComputedStyle($element[0])['height']+'" class="editMaskHover hidden"></div>');
 
             $element.css({
-                position:'relative',
-                cursor:'pointer',
-                overflow:'hidden'
+                cursor:'pointer'
             });
+
+            $element.addClass('tm-parent tm-'+$scope.moduleName);
 
             $element.append($compile(shadow)($scope));
 
             $element.bind('mouseover',function(){
-
-                $scope.isHide=true;
-                $scope.$apply();
-                $compile(shadow)($scope);
+                $(this).find('.editMaskHover').removeClass('hidden');
             });
 
             $element.bind('mouseout',function(){
-
-                $scope.isHide=false;
-                $scope.$apply();
-                $compile(shadow)($scope);
+                $(this).find('.editMaskHover').addClass('hidden');
             });
         },
         replace:true,
@@ -130,7 +89,8 @@ directive.directive('tmParent',function($compile) {
                 //$rootScope.dialogForm.html($compile(angular.element('<div tm-mod-name="'+scope.moduleName+'" tm-item-name="hot_search_repeat" tm-control-model-A-1></div>'))($scope));
             }
 
-            $element.bind('click',function(){
+            $element.bind('click',function(e){
+                e.stopPropagation();
                 setPannel();
                 var element=$element;
                 $rootScope.dialogForm.dialog("option",{
@@ -139,7 +99,8 @@ directive.directive('tmParent',function($compile) {
                         {
                             text:"保存",
                             click:function(){
-                                tmSaveData(scope.module)
+                                tmSaveData(scope.module,scope.module.config.data_num);
+                                $(this).dialog("close");
                             }
                         },
                         {
@@ -182,7 +143,8 @@ directive.directive('tmElemtaryReapeat',function() {
     return{
         require:'^tmParent',
         scope:{
-            itemName:'@tmItemName'
+            itemName:'@tmItemName',
+            itemTempl:'@tmItemView'
         },
         //tranclude:true,
         controller:function($scope){
@@ -190,7 +152,7 @@ directive.directive('tmElemtaryReapeat',function() {
                 $scope.model=$scope.item.model;
             });
             $scope.getContentUrl = function() {
-                return 'directive/view/'+$scope.moduleName+'/'+$scope.itemName+'.html';
+                return 'directive/view/'+$scope.moduleName+'/'+$scope.itemTempl+'.html';
             };
         },
         link:function($scope, $element,$attrs,ctrls){
@@ -201,7 +163,10 @@ directive.directive('tmElemtaryReapeat',function() {
             $scope.$broadcast('reDefinedScope');
         },
         replace:true,
-        template: '<div ng-include="getContentUrl()"></div>'
+        template: function($element,$attr) {
+            var tag=$element[0]['localName'];
+            return '<'+tag+' ng-include="getContentUrl()"></'+tag+'>'
+        }
     }
 });
 
