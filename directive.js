@@ -43,7 +43,7 @@ directive.directive('tmParent',function($compile) {
         scope:{
             moduleName:'@tmModName'
         },
-        link:function($scope, $element,$attrs){
+        link:function($scope, $element,$attrs,$rootScope){
             $scope.isHide=true;
             var shadow=angular.element('<div style="height:'+getComputedStyle($element[0])['height']+'" class="editMaskHover hidden"></div>');
 
@@ -55,13 +55,7 @@ directive.directive('tmParent',function($compile) {
 
             $element.append($compile(shadow)($scope));
 
-            $element.bind('mouseover',function(){
-                $(this).find('.editMaskHover').removeClass('hidden');
-            });
 
-            $element.bind('mouseout',function(){
-                $(this).find('.editMaskHover').addClass('hidden');
-            });
         },
         replace:true,
         templateUrl: function(elem, attr){
@@ -91,49 +85,66 @@ directive.directive('tmParent',function($compile) {
 
             $element.bind('click',function(e){
                 e.stopPropagation();
-                setPannel();
-                var element=$element;
-                $rootScope.dialogForm.dialog("option",{
-                    title:'设置'+scope.module.config.title,
-                    'buttons':[
-                        {
-                            text:"保存",
-                            click:function(){
-                                tmSaveData(scope.module,scope.module.config.data_num);
-                                $(this).dialog("close");
+
+                if($rootScope.isEdit) {
+                    setPannel();
+                    var element = $element;
+                    $rootScope.dialogForm.dialog("option", {
+                        title: '设置' + scope.module.config.title,
+                        'buttons': [
+                            {
+                                text: "保存",
+                                click: function () {
+                                    tmSaveData(scope.module, scope.module.config.data_num);
+                                    $(this).dialog("close");
+                                }
+                            },
+                            {
+                                text: "查看源代码",
+                                id: 'js-check-raw-bottom',
+                                click: function () {
+                                    $('#js-check-raw-bottom').button("disable");
+                                    $('#js-setup-bottom').button("enable");
+                                    $rootScope.dialogForm.dialog("option", 'title', '查看' + scope.module.config.title + '源代码');
+                                    $rootScope.dialogForm.html('<textarea class="raw-textarea">' + $filter('checkRaw')(element.html()) + '</textarea>');
+                                }
+                            },
+                            {
+                                text: "设置",
+                                id: 'js-setup-bottom',
+                                disabled: true,
+                                click: function () {
+                                    $('#js-setup-bottom').button("disable");
+                                    $('#js-check-raw-bottom').button("enable");
+                                    $rootScope.dialogForm.dialog("option", 'title', '设置' + scope.module.config.title);
+                                    setPannel();
+                                }
+                            },
+                            {
+                                text: "关闭",
+                                click: function () {
+                                    $(this).dialog("close");
+                                }
                             }
-                        },
-                        {
-                            text:"查看源代码",
-                            id:'js-check-raw-bottom',
-                            click:function(){
-                                $('#js-check-raw-bottom').button("disable");
-                                $('#js-setup-bottom').button("enable");
-                                $rootScope.dialogForm.dialog("option",'title','查看'+scope.module.config.title+'源代码');
-                                $rootScope.dialogForm.html('<textarea class="raw-textarea">'+$filter('checkRaw')(element.html())+'</textarea>');
-                            }
-                        },
-                        {
-                            text:"设置",
-                            id:'js-setup-bottom',
-                            disabled:true,
-                            click:function() {
-                                $('#js-setup-bottom').button("disable");
-                                $('#js-check-raw-bottom').button("enable");
-                                $rootScope.dialogForm.dialog("option",'title','设置'+scope.module.config.title);
-                                setPannel();
-                            }
-                        },
-                        {
-                            text:"关闭",
-                            click:function() {
-                                $(this).dialog("close");
-                            }
-                        }
-                    ]
-                });
-                $rootScope.dialogForm.dialog("open");
-            })
+                        ]
+                    });
+                    $rootScope.dialogForm.dialog("open");
+                }
+            });
+
+            $element.bind('mouseover',function(){
+                //console.log($rootScope.isEdit);
+                if($rootScope.isEdit){
+                    $(this).find('.editMaskHover').removeClass('hidden');
+                }
+            });
+
+            $element.bind('mouseout',function(){
+                if($rootScope.isEdit){
+                    $(this).find('.editMaskHover').addClass('hidden');
+                }
+            });
+
         }
     }
 });

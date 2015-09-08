@@ -17,7 +17,7 @@
     <price>0</price>
     <link>##</link>
     <remark>
-      <r0 tag="设置焦点图">{"banner_pic_repeat":{"model":[{"value":"","$$hashKey":"object:25","pic":"https://img.alicdn.com/imgextra/i1/2067413496/TB2ikBPdVXXXXXpXXXXXXXXXXXX_!!2067413496.jpg","url":"http://cgzl.tmall.com/p/rd600857.htm"},{"value":"","$$hashKey":"object:7","pic":"https://img.alicdn.com/imgextra/i2/2067413496/TB2OTSIeVXXXXcfXXXXXXXXXXXX_!!2067413496.jpg","url":"http://cgzl.tmall.com/p/rd743438.htm"}]}}</r0>
+      <r0 tag="设置焦点图">{"banner_pic_repeat":{"model":[{"value":"","$$hashKey":"object:25","pic":"https://img.alicdn.com/imgextra/i2/2067413496/TB2OTSIeVXXXXcfXXXXXXXXXXXX_!!2067413496.jpg","url":"http://cgzl.tmall.com/p/rd743438.htm"},{"value":"","$$hashKey":"object:7","pic":"https://img.alicdn.com/imgextra/i1/2067413496/TB2ikBPdVXXXXXpXXXXXXXXXXXX_!!2067413496.jpg","url":"http://cgzl.tmall.com/p/rd600857.htm"},{"value":"","$$hashKey":"object:55","pic":"https://img.alicdn.com/imgextra/i2/2067413496/TB2ZzY1dVXXXXcgXXXXXXXXXXXX_!!2067413496.jpg","url":"http://cgzl.tmall.com/p/rd075928.htm"},{"value":"","$$hashKey":"object:54","pic":"http://img.alicdn.com/imgextra/i2/2067413496/TB2RbfrdFXXXXXtXXXXXXXXXXXX_!!2067413496.jpg","url":"http://cgzl.alitrip.com/p/rd873746.htm?spm=a1z10.1-b.w5003-9882021204.1.W1lMRr&amp;scene=taobao_shop"},{"value":"","$$hashKey":"object:61","pic":"http://img03.taobaocdn.com/imgextra/i3/2067413496/TB2LTBrbVXXXXatXpXXXXXXXXXX_!!2067413496.jpg","url":"http://cgzl.tmall.com/p/visa.htm"}],"config":{"title":"焦点图详情","node-type":"elemtary-reapeat","controller":"B_1","max":7,"picSize-x":"140","picSize-y":"31"}},"config":{"title":"焦点图","node-type":"parent","data_num":1}}</r0>
     </remark>
   </line>
   <line id="2">
@@ -27,7 +27,7 @@
     <price>0</price>
     <link>##</link>
     <remark>
-      <r0 tag="设置旺旺客服">{"travel_repeat":{"config":{"title":"旅游度假123","node-type":"elemtary-reapeat","max":10,"controller":"A_3"},"model":[{"value":"","$$hashKey":"object:7","text":"坤坤"}]},"ticket_repeat":{"config":{"title":"订房订票","node-type":"elemtary-reapeat","max":10,"controller":"A_3"},"model":[{"value":"","$$hashKey":"object:7","text":"云儿"}]},"config":{"title":"旺旺客服","node-type":"parent","data_num":2}}</r0>
+      <r0 tag="设置旺旺客服">{"travel_repeat":{"config":{"title":"旅游度假","node-type":"elemtary-reapeat","max":10,"controller":"A_3"},"model":[{"value":"","$$hashKey":"object:7","text":"坤坤"},{"value":"","$$hashKey":"object:44","text":"大吉"},{"value":"","$$hashKey":"object:49","text":"岚岚"},{"value":"","$$hashKey":"object:53","text":"大斌"},{"value":"","$$hashKey":"object:58","text":"梵梵"}]},"ticket_repeat":{"config":{"title":"订房订票","node-type":"elemtary-reapeat","max":10,"controller":"A_3"},"model":[{"value":"","$$hashKey":"object:7","text":"云儿"},{"value":"","$$hashKey":"object:63","text":"珊珊"},{"value":"","$$hashKey":"object:68","text":"斋斋"}]},"config":{"title":"旺旺客服","node-type":"parent","data_num":2}}</r0>
     </remark>
   </line>
   <line id="3">

@@ -19,6 +19,6 @@ filter.filter('callcenterImg',function(){
 
 filter.filter('callcenterURL',function(){
     return function(str){
-        return 'http://www.taobao.com/webww/ww.php?spm=a1z10.1-b.w5003-9721413899.2.Jr5aTP&amp;ver=3&amp;touid='+encodeURI('广之旅旗舰店:')+encodeURI(str)+'&amp;siteid=cntaobao&amp;status=2&amp;charset=utf-8&amp;scene=taobao_shop';
+        return 'http://www.taobao.com/go/market/webww/ww.php?spm=a1z10.1-b.w5003-9721413899.2.4t0eHv&ver=3&touid='+encodeURI('广之旅旗舰店:')+encodeURI(str)+'&amp;siteid=cntaobao&amp;status=2&amp;charset=utf-8&amp;scene=taobao_shop';
     }
 });

@@ -22,11 +22,11 @@ config.config(function($httpProvider){
 config.config(function ($routeProvider){
     $routeProvider
         .when('/preview', {
-            controller: 'previewCtrl',
+            controller: 'previewCtrl'
             /*templateUrl:'indexTempl.html',*/
         })
         .when('/edit', {
-            controller: 'editCtrl',
+            controller: 'editCtrl'
             /*templateUrl:'indexTempl.html',*/
         })
         .otherwise({
