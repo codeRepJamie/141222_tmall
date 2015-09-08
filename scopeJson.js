@@ -161,10 +161,12 @@ dataScope.factory('sData', function () {
                 "value": "",
                 "$$hashKey": "object:7",
                 "text": "出境游度假",
-                "sub_item_repeat": [{"text": "美洲", "url": "http://www.baidu.com"}, {
-                    "text": "美洲",
-                    "url": "http://www.baidu.com"
-                }]
+                "sub_item_repeat": {
+                    model: [{"text": "美洲", "url": "http://www.baidu.com"}, {
+                        "text": "美洲",
+                        "url": "http://www.baidu.com"
+                    }]
+                }
             }]
 
         },
@@ -211,11 +213,11 @@ dataScope.factory('sData', function () {
         "controller": "A_3"
     });
 
-    root.catalog.config={
-        "title":"分类栏目",
-        "data_num":3
+    root.catalog.config = {
+        "title": "分类栏目",
+        "data_num": 3
     };
-    $.extend(root.catalog.catalog_item_repeat.config,{
+    $.extend(root.catalog.catalog_item_repeat.config, {
         "max": 5,
         "controller": "A_4"
     });

@@ -203,7 +203,8 @@ directive.directive('tmElemtaryRepeat',function() {
             $scope.$on('reDefinedScope',function(){
                 //console.log($scope);
                 //console.log($scope.parentsItemName);
-                console.log($scope.item);
+                console.log($scope.item.model[0]);
+                console.log($scope.itemName);
                 $scope.model=$scope.item.model;
                 //console.log($scope.item,$scope.itemName);
             });
@@ -224,9 +225,10 @@ directive.directive('tmElemtaryRepeat',function() {
                         this.itemName=$scope.itemName;
                         break;
                     }else{
-                        this.item=$scope.item=ctrls[i]['item'][$scope.itemName];
+                        //this.item=$scope.item=ctrls[i]['item'][$scope.itemName];
+                        this.item=$scope.item=ctrls[i];
                         this.itemName=$scope.itemName;
-                        console.log(ctrls[i][ctrls[i][$scope.itemName]]);
+                        //console.log(ctrls[i]);
                         break;
                     }
                 }else{
