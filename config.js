@@ -18,3 +18,18 @@ config.config(function($httpProvider){
     };
 
 });
+
+config.config(function ($routeProvider){
+    $routeProvider
+        .when('/preview', {
+            controller: 'previewCtrl',
+            /*templateUrl:'indexTempl.html',*/
+        })
+        .when('/edit', {
+            controller: 'editCtrl',
+            /*templateUrl:'indexTempl.html',*/
+        })
+        .otherwise({
+            redirectTo: '/preview'
+        });
+});
