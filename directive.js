@@ -149,27 +149,130 @@ directive.directive('tmParent',function($compile) {
     }
 });
 
-
-directive.directive('tmElemtaryReapeat',function() {
+/*directive.directive('tmItemRepeat',function() {
     return{
-        require:'^tmParent',
+        require:['^tmParent'],
         scope:{
             itemName:'@tmItemName',
             itemTempl:'@tmItemView'
         },
-        //tranclude:true,
         controller:function($scope){
+            var _this=this;
             $scope.$on('reDefinedScope',function(){
-                $scope.model=$scope.item.model;
+                _this.itemModel=$scope.model=$scope.item.model;
             });
+            //console.log($scope.moduleName);
             $scope.getContentUrl = function() {
                 return 'directive/view/'+$scope.moduleName+'/'+$scope.itemTempl+'.html';
             };
         },
         link:function($scope, $element,$attrs,ctrls){
-            $scope.moduleName=ctrls.moduleName;
+            $scope.moduleName=ctrls[ctrls.length-1]['moduleName'];
+            $scope.module=ctrls[ctrls.length-1]['module'];
+            for (var i=0;i<ctrls.length;i++){
+                if(ctrls[i]!=null){
+                    if(i==ctrls.length-1){
+                        $scope.item=$scope.module[$scope.itemName];
+                    }else{
+                        $scope.item=ctrls[i]['item'][$scope.itemName];
+                    }
+                }
+            }
+
+            $scope.$broadcast('reDefinedScope');
+        },
+        replace:true,
+        template: function($element,$attr) {
+            var tag=$element[0]['localName'];
+            return '<'+tag+' ng-include="getContentUrl()"></'+tag+'>'
+        }
+    }
+});*/
+
+
+directive.directive('tmElemtaryRepeat',function() {
+    return{
+        //require:['^tmParent','?^tmItemReapeat'],
+        require:['?^tmElemtaryRepeat','^tmParent'],
+        scope:{
+            itemName:'@tmItemName',
+            itemView:'@tmItemView'
+        },
+        //tranclude:true,
+        controller:function($scope){
+            $scope.$on('reDefinedScope',function(){
+                //console.log($scope);
+                //console.log($scope.parentsItemName);
+                console.log($scope.item);
+                $scope.model=$scope.item.model;
+                //console.log($scope.item,$scope.itemName);
+            });
+
+            $scope.getContentUrl = function() {
+                return 'directive/view/'+$scope.moduleName+'/'+$scope.itemView+'.html';
+            };
+        },
+        link:function($scope, $element,$attrs,ctrls){
+
+            $scope.moduleName=ctrls[1]['moduleName'];
+            $scope.module=ctrls[1]['module'];
+            //console.log(ctrls,$attrs);
+            for (var i=0;i<ctrls.length;i++){
+                if(!isEmpty(ctrls[i])){
+                    if(i==ctrls.length-1){
+                        this.item=$scope.item=$scope.module[$scope.itemName];
+                        this.itemName=$scope.itemName;
+                        break;
+                    }else{
+                        this.item=$scope.item=ctrls[i]['item'][$scope.itemName];
+                        this.itemName=$scope.itemName;
+                        console.log(ctrls[i][ctrls[i][$scope.itemName]]);
+                        break;
+                    }
+                }else{
+                    //console.log(ctrls[i],ctrls.length,ctrls,isEmpty(ctrls[1]));
+
+                }
+            }
+
+           // var hasOwnProperty = Object.prototype.hasOwnProperty;
+
+            function isEmpty(obj) {
+
+                // null and undefined are "empty"
+                if (obj == null) return true;
+
+                // Assume if it has a length property with a non-zero value
+                // that that property is correct.
+                if (obj.length > 0)    return false;
+                if (obj.length === 0)  return true;
+
+                // Otherwise, does it have any properties of its own?
+                // Note that this doesn't handle
+                // toString and valueOf enumeration bugs in IE < 9
+                for (var key in obj) {
+                    if (obj.hasOwnProperty(key)) return false;
+                }
+
+                return true;
+            }
+            /*for( var i=0;i<ctrls.length;i++){
+                if(ctrls[i]==null){
+                    return false;
+                }
+                if(i==ctrls.length-1){
+                    parentsItemName=ctrls[i]['moduleName'];
+                    $scope.item=ctrls[i]['module'][$scope.itemName];
+                }else{
+                    parentsItemName=ctrls[i]['itemsName'];
+                    $scope.item=ctrls[i]['item'][$scope.itemName];
+                }
+
+            }*/
+            //console.log($scope.parentsItemName);
+            /*$scope.moduleName=ctrls.moduleName;
             $scope.module=ctrls.module;
-            $scope.item=$scope.module[$scope.itemName];
+            $scope.item=$scope.module[$scope.itemName];*/
 
             $scope.$broadcast('reDefinedScope');
         },
