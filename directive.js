@@ -3,20 +3,41 @@
  */
 var directive=angular.module('tmDirective',[]);
 
-function bindPannel($scope){
+/*function hashRandom(num){
+    var str='';
+    for(var i=0;i<num;i++){
+        str+='._0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.substr(Math.floor(Math.random()*64),1);
+    }
+    return str;
+}*/
+
+function bindPannel($scope,$element,$itemName){
+    $scope.editItem=function(index){
+        //console.log($element.find('.sub-list-model'),index);
+        var controller='<div tm-sub-list-control-model tm-mod-name="'+scope.moduleName+'" tm-item-name="'+item+'" tm-sub-list-name="'+''+'" tm-model-controller="'+scope.module[item]['config']['controller']+'"></div>';
+        $element.find('.sub-list-model').html('').html($compile(angular.element(controller))($scope));
+
+    };
     $scope.addItem=function() {
-        if(!$scope.item.config.max||($scope.model.length<$scope.item.config.max || alert('最多不能超过'+$scope.item.config.max+'项！'))){
-            var item = {};
-            for (value in $scope.model) {
-                item.value = '';
-            }
-            $scope.model.push(item);
+        if($scope.model[0]&&!$scope.item.config.max||($scope.model.length<$scope.item.config.max || alert('最多不能超过'+$scope.item.config.max+'项！'))){
+            //console.log(hashRandom(6));
+            /*function addHashKey(model){
+                if(!model.hasOwnProperty('model')){
+                    model['$$hashKey']='object:'+ hashRandom(6);
+                    return model
+                }else{
+                    addHashKey(model['model']);
+                }
+            }*/
+            var newModel = $.extend(/*true,*/{}, $scope.item.config.model);
+            $scope.model.push(newModel);
+            //console.log($scope.model);
         }
     };
     $scope.delete=function(i){
         $scope.model.splice(i,1);
     }
-};
+}
 
 directive.directive('tmControlModel', function() {
     return {
@@ -24,16 +45,15 @@ directive.directive('tmControlModel', function() {
         scope:{
             moduleName:'@tmModName',
             itemName:'@tmItemName'
-            //controller:'@tmModelController'
         },
         templateUrl: function(elem, attr){
             return 'directive/controller/model_'+attr.tmModelController+'.html'
         },
         replace: true,
-        controller:function($scope,tmModel){
-            bindPannel($scope);
+        controller:function($scope,tmModel,$element){
             $scope.item=tmModel.getItem($scope.moduleName,$scope.itemName);
             $scope.model=tmModel.getModel($scope.moduleName,$scope.itemName);
+            bindPannel($scope,$element,$scope.itemName);
         }
     };
 });
@@ -72,9 +92,8 @@ directive.directive('tmParent',function($compile) {
 
                 if(scope.module.hasOwnProperty){
                     for(item in scope.module){
-                        if(item!='config'){
+                        if(item!='config'&& scope.module.hasOwnProperty(item)){
                             controller+='<div tm-control-model tm-mod-name="'+scope.moduleName+'" tm-item-name="'+item+'" tm-model-controller="'+scope.module[item]['config']['controller']+'"></div>';
-                            //$rootScope.dialogForm.append($compile(angular.element(controller))($scope));
                         }
                     }
                 }
@@ -149,64 +168,22 @@ directive.directive('tmParent',function($compile) {
     }
 });
 
-/*directive.directive('tmItemRepeat',function() {
-    return{
-        require:['^tmParent'],
-        scope:{
-            itemName:'@tmItemName',
-            itemTempl:'@tmItemView'
-        },
-        controller:function($scope){
-            var _this=this;
-            $scope.$on('reDefinedScope',function(){
-                _this.itemModel=$scope.model=$scope.item.model;
-            });
-            //console.log($scope.moduleName);
-            $scope.getContentUrl = function() {
-                return 'directive/view/'+$scope.moduleName+'/'+$scope.itemTempl+'.html';
-            };
-        },
-        link:function($scope, $element,$attrs,ctrls){
-            $scope.moduleName=ctrls[ctrls.length-1]['moduleName'];
-            $scope.module=ctrls[ctrls.length-1]['module'];
-            for (var i=0;i<ctrls.length;i++){
-                if(ctrls[i]!=null){
-                    if(i==ctrls.length-1){
-                        $scope.item=$scope.module[$scope.itemName];
-                    }else{
-                        $scope.item=ctrls[i]['item'][$scope.itemName];
-                    }
-                }
-            }
-
-            $scope.$broadcast('reDefinedScope');
-        },
-        replace:true,
-        template: function($element,$attr) {
-            var tag=$element[0]['localName'];
-            return '<'+tag+' ng-include="getContentUrl()"></'+tag+'>'
-        }
-    }
-});*/
-
 
 directive.directive('tmElemtaryRepeat',function() {
     return{
         //require:['^tmParent','?^tmItemReapeat'],
-        require:['?^tmElemtaryRepeat','^tmParent'],
+        require:'^tmParent',
         scope:{
             itemName:'@tmItemName',
-            itemView:'@tmItemView'
+            itemView:'@tmItemView',
+            parentName:'@tmParentName',
+            repeatIndex:'@tmRepeatIndex'
         },
         //tranclude:true,
         controller:function($scope){
+            var _this=this;
             $scope.$on('reDefinedScope',function(){
-                //console.log($scope);
-                //console.log($scope.parentsItemName);
-                console.log($scope.item.model[0]);
-                console.log($scope.itemName);
                 $scope.model=$scope.item.model;
-                //console.log($scope.item,$scope.itemName);
             });
 
             $scope.getContentUrl = function() {
@@ -214,67 +191,15 @@ directive.directive('tmElemtaryRepeat',function() {
             };
         },
         link:function($scope, $element,$attrs,ctrls){
+            console.log($scope.repeatIndex);
+            $scope.moduleName=ctrls['moduleName'];
+            $scope.module=ctrls['module'];
 
-            $scope.moduleName=ctrls[1]['moduleName'];
-            $scope.module=ctrls[1]['module'];
-            //console.log(ctrls,$attrs);
-            for (var i=0;i<ctrls.length;i++){
-                if(!isEmpty(ctrls[i])){
-                    if(i==ctrls.length-1){
-                        this.item=$scope.item=$scope.module[$scope.itemName];
-                        this.itemName=$scope.itemName;
-                        break;
-                    }else{
-                        //this.item=$scope.item=ctrls[i]['item'][$scope.itemName];
-                        this.item=$scope.item=ctrls[i];
-                        this.itemName=$scope.itemName;
-                        //console.log(ctrls[i]);
-                        break;
-                    }
-                }else{
-                    //console.log(ctrls[i],ctrls.length,ctrls,isEmpty(ctrls[1]));
-
-                }
-            }
-
-           // var hasOwnProperty = Object.prototype.hasOwnProperty;
-
-            function isEmpty(obj) {
-
-                // null and undefined are "empty"
-                if (obj == null) return true;
-
-                // Assume if it has a length property with a non-zero value
-                // that that property is correct.
-                if (obj.length > 0)    return false;
-                if (obj.length === 0)  return true;
-
-                // Otherwise, does it have any properties of its own?
-                // Note that this doesn't handle
-                // toString and valueOf enumeration bugs in IE < 9
-                for (var key in obj) {
-                    if (obj.hasOwnProperty(key)) return false;
-                }
-
-                return true;
-            }
-            /*for( var i=0;i<ctrls.length;i++){
-                if(ctrls[i]==null){
-                    return false;
-                }
-                if(i==ctrls.length-1){
-                    parentsItemName=ctrls[i]['moduleName'];
-                    $scope.item=ctrls[i]['module'][$scope.itemName];
-                }else{
-                    parentsItemName=ctrls[i]['itemsName'];
-                    $scope.item=ctrls[i]['item'][$scope.itemName];
-                }
-
-            }*/
-            //console.log($scope.parentsItemName);
-            /*$scope.moduleName=ctrls.moduleName;
-            $scope.module=ctrls.module;
-            $scope.item=$scope.module[$scope.itemName];*/
+            if($scope.parentName&&$scope.repeatIndex){
+                $scope.item=$scope.module[$scope.parentName]['model'][parseInt($scope.repeatIndex)][$scope.itemName];
+             }else{
+                $scope.item=$scope.module[$scope.itemName];
+             }
 
             $scope.$broadcast('reDefinedScope');
         },
@@ -290,8 +215,7 @@ directive.directive('tmElemtaryRepeat',function() {
 directive.directive('tmDraggable',function() {
     return {
         restrict : 'A',
-        link : function($scope, $element) {
-            //using iCheck
+        link : function($scope, $element,$attrs,$ctrls) {
             var start=0;
                 $($element).sortable({
                     axis: 'y',
@@ -300,10 +224,13 @@ directive.directive('tmDraggable',function() {
                         start= ui.item.index();
                     },
                     stop:function(event, ui ){
-                        //console.log($scope);
                         $scope.model.movePos(start,ui.item.index());
-                        //$scope.$root.model.movePos(start,ui.item.index());
-                        $scope.$apply();
+                        $scope.$broadcast('reDefinedScope');
+                        $scope.$apply(function(){
+
+                        });
+                        //console.log($scope.model);
+                        //$scope.$broadcast('reDefinedScope');
                     }
                 });
 

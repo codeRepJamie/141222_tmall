@@ -1,26 +1,11 @@
 <section class="js-catalog_item_repeat">
-    <div class="cat-block" ng-repeat="item in model track by $index">
+    <div class="cat-block WL03cat-block-{{$index}}" ng-repeat="item in model track by $index">
         <div class="cat-father" ng-bind="item.text" ></div>
-        <div class="cat-child">
-            <!-- TODO angular:次级标题 -->
-            <a tm-elemtary-repeat tm-item-name="sub_item_repeat" tm-item-view="sub_item_repeat"></a>
-            <!-- angular:次级标题 End -->
 
-            <!--<a  target="_blank"
-                                  href="//cgzl.tmall.com/category-909289356.htm?spm=a220o.1000855.0.0.Euc022&search=y&catName=%C3%C0%D6%DE&scene=taobao_shop">美洲</a><a
-                target="_blank"
-                href="//cgzl.tmall.com/category-1044223952.htm?spm=a1z10.1-b.0.0.saLLR9&search=y&parentCatId=981688017&parentCatName=%C5%B7%D6%DE&catName=%C5%B7%D6%DE%D7%D4%D3%C9%D0%D0&scene=taobao_shop">欧洲</a><a
-                target="_blank"
-                href="//cgzl.tmall.com/category-905439019.htm?spm=a1z10.5.0.0.65Qe5d&search=y&catName=%C8%D5%B1%BE&scene=taobao_shop">日本</a><a
-                target="_blank"
-                href="//cgzl.tmall.com/category-905434773.htm?spm=a1z10.5.0.0.4HlGzE&search=y&catName=%BA%AB%B9%FA&scene=taobao_shop">韩国</a><a
-                target="_blank"
-                href="//cgzl.alitrip.com/category-1069657617.htm?spm=a1z10.1-b.w5002-6789938861.4.1QM7yD&search=y&parentCatId=1006897217&parentCatName=%B3%F6%BE%B3%D7%D4%D3%C9%D0%D0%2F%B8%FA%CD%C5%D3%CE&catName=%BA%A3%B5%BA&scene=taobao_shop">海岛</a><a
-                target="_blank"
-                href="//cgzl.tmall.com/category-905434729.htm?spm=a1z10.5-b.0.0.UUXVUL&search=y&parentCatId=905434726&parentCatName=%B6%AB%C4%CF%D1%C7&catName=%CC%A9%B9%FA&scene=taobao_shop">泰国</a><a
-                target="_blank"
-                href="//cgzl.tmall.com/category-945317393.htm?spm=a1z10.5-b.0.0.ogSCnf&search=y&parentCatId=905434726&parentCatName=%B6%AB%C4%CF%D1%C7&catName=%C2%ED%C0%B4%CE%F7%D1%C7&scene=taobao_shop">马来西亚</a>-->
-        </div>
+            <!-- TODO angular:次级标题 -->
+            <div class="cat-child" tm-elemtary-repeat tm-repeat-index="{{$index}}" tm-parent-name="{{itemName}}" tm-item-name="sub_item_repeat" tm-item-view="sub_item_repeat"></div>
+            <!-- angular:次级标题 End -->
+        <div class="line {{$index==4?'hidden':''}}">&nbsp;</div>
     </div>
-    <div class="line">&nbsp;</div>
+
 </section>

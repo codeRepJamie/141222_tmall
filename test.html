@@ -170,6 +170,12 @@
     <script src="filter.js"></script>
     <script src="scopeJson.js"></script>
     <style>
+        .clear-fix::after{
+            clear: both;
+            content: '\20';
+            height: 0;
+            display: block;
+        }
         .dialogForm{
             z-index: 900000001;
             position: fixed;
@@ -222,7 +228,7 @@
             padding: 5px;
         }
 
-        .model .title .funcLink {
+        .model .funcLink {
             color: blue;
             margin-left: 5px;
             outline: none;
@@ -230,6 +236,7 @@
 
         .model ul li {
             padding: 5px;
+            background-color: #FFF;
         }
 
         .model ul li.even {
@@ -262,6 +269,22 @@
         }
         .model .pic .inputCont p {
             margin: 5px 0;
+        }
+        .model .multi-list .sub-list,.model .multi-list>.keyWords{
+            float: left;
+        }
+        .model .multi-list .sub-list{
+            width: 80%;
+            padding: 5px;
+        }
+        .model .multi-list ul{
+
+        }
+        .model .multi-list ul li{
+            background: none;
+            float: left;
+            margin-right: 5px;
+            color: #8a8a8a;
         }
     </style>
 

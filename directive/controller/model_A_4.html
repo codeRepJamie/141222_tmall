@@ -1,11 +1,23 @@
 <div class="model">
-    <div class="title">设置标题:<input type="text" ng-model="item.config.title"/>:<a class="funcLink" href="javascript:void(0);" ng-click="addItem()">添加一项</a></div>
-    <ul tm-draggable>
-        <li ng-class-even="'even'" ng-repeat="item in model">
-            <input class="keyWords" type="text" ng-model="item.text"/>
-            <input class="url" type="text" ng-model="item.url"/>
-            <a href="javascript:void(0);" class="ui-button-icon-primary ui-icon ui-icon-closethick close" ng-click="delete($index)"></a>
-        </li>
+    <div class="sub-list-model">
+    <div class="title">设置{{item.config.title}}:<a class="funcLink" href="javascript:void(0);" ng-click="addItem()">添加一项</a></div>
 
-    </ul>
+        <ul tm-draggable>
+            <li class="multi-list clear-fix" ng-class-even="'even'" ng-repeat="item in model">
+                <input class="keyWords" type="text" ng-model="item.text"/>
+
+                <div class="sub-list">
+                    <span ng-bind="item.sub_item_repeat.config.title+'列表：'"></span><a class="funcLink"
+                                                                                      href="javascript:void(0);"
+                                                                                      ng-click="editItem($index)">编辑该项</a>
+                    <ul class="list clear-fix">
+                        <li ng-repeat="subItem in item.sub_item_repeat.model" ng-bind="subItem.text"></li>
+                    </ul>
+                </div>
+                <a href="javascript:void(0);" class="ui-button-icon-primary ui-icon ui-icon-closethick close"
+                   ng-click="delete($index)"></a>
+            </li>
+
+        </ul>
+    </div>
 </div>
