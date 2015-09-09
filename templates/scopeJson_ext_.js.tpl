@@ -79,17 +79,51 @@ dataScope.factory('sData',function(){
             "sub_item_repeat": {
                 "config": {
                     "title": "次级标题",
-                    "max": 10
+                    "max": 10,
+                    "controller":'A_2'
                 },
                 "model": [{"text": "", "url": ""}]
             }
         }
     });
+
+    justifyModel(root.catalog.catalog_item_repeat.model);
+
+    function justifyModel(arr){
+        for(var i=0;i<arr.length;i++){
+            $.extend(arr[i],{
+                "id":i
+            })
+        }
+    }
+
     $.extend(root.catalog.catalog_banner_repeat.config, {
         "title": "焦点图",
         "max": 4,
-        "controller": "A_4"
+        "controller": "B_2",
+        "option": {
+            "config": [{"id": 0, "name": "单图", "value": "default"}, {"id": 1, "name": "多图", "value": "four_in_one"}],
+            "default": {
+                "model": {"text": "", "type": "defualt", "url": "", "pic": ""}
+            },
+            "four_in_one": {
+                "model": {
+                    "text": "",
+                    "type": "four_in_one",
+                    "url1": "",
+                    "pic1": "",
+                    "url2": "",
+                    "pic2": "",
+                    "url3": "",
+                    "pic3": "",
+                    "url4": "",
+                    "pic4": ""
+                }
+            }
+        },
+        "model": {"text": "", "type": "defualt", "url": "", "pic": ""}
     });
+
 
     return root;
 });

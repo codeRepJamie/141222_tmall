@@ -11,7 +11,7 @@ dataScope.factory('sData',function(){
     root.callcenter={"travel_repeat":{"config":{"title":"旅游度假","node-type":"elemtary-reapeat","max":10,"controller":"A_3","model":{"text":""}},"model":[{"$$hashKey":"object:7","text":"坤坤"},{"$$hashKey":"object:44","text":"大吉"},{"$$hashKey":"object:49","text":"岚岚"},{"$$hashKey":"object:53","text":"大斌"},{"$$hashKey":"object:58","text":"梵梵"}]},"ticket_repeat":{"config":{"title":"订房订票","node-type":"elemtary-reapeat","max":10,"controller":"A_3","model":{"text":""}},"model":[{"$$hashKey":"object:7","text":"云儿"},{"$$hashKey":"object:63","text":"珊珊"},{"$$hashKey":"object:68","text":"斋斋"}]},"config":{"title":"旺旺客服","node-type":"parent","data_num":2}};
     
     
-    root.catalog={"catalog_item_repeat":{"model":[{"text":"拜拜","sub_item_repeat":{"config":{"title":"次级标题","max":10},"model":[{"text":"","url":"","$$hashKey":"object:88"}]},"$$hashKey":"object:86"},{"text":"abc","sub_item_repeat":{"config":{"title":"次级标题","max":10},"model":[{"text":"","url":"","$$hashKey":"object:99"}]},"$$hashKey":"object:97"},{"text":"台湾","sub_item_repeat":{"config":{"title":"次级标题","max":10,"model":{"text":"","url":""}},"controller":"A_2","model":[{"text":"美洲3","url":"http://www.baidu.com","$$hashKey":"object:89"},{"text":"美洲4","url":"http://www.baidu.com","$$hashKey":"object:90"}]},"$$hashKey":"object:82"},{"text":"出境游度假","sub_item_repeat":{"config":{"title":"次级标题","max":10,"model":{"text":"","url":""}},"controller":"A_2","model":[{"text":"美洲1","url":"http://www.baidu.com","$$hashKey":"object:85"},{"text":"美洲2","url":"http://www.baidu.com","$$hashKey":"object:86"}]},"$$hashKey":"object:81"}],"config":{"title":"推荐分类","max":5,"controller":"A_4","model":{"text":"","sub_item_repeat":{"config":{"title":"次级标题","max":10},"model":[{"text":"","url":""}]}}}},"catalog_banner_repeat":{"model":[{"$$hashKey":"object:7","text":"省内沙滩"}],"config":{"title":"焦点图","max":4,"controller":"A_4","model":{"text":""}}},"config":{"title":"分类栏目","node-type":"parent","data_num":3}};
+    root.catalog={"catalog_banner_repeat":{"model":[{"$$hashKey":"object:7","text":"123","type":"default","url":"12222","pic":"1222"},{"text":"呃呃呃","type":"four_in_one","url":"谢谢谢谢","pic":"哥哥哥哥","$$hashKey":"object:95"}],"config":{"title":"焦点图","max":4,"controller":"B_2","model":{"text":"","type":"defualt","url":"","pic":""},"option":{"config":[{"id":0,"name":"单图","value":"default"},{"id":1,"name":"多图","value":"four_in_one"}],"default":{"model":{"text":"","type":"defualt","url":"","pic":""}},"four_in_one":{"model":{"text":"","type":"four_in_one","url1":"","pic1":"","url2":"","pic2":"","url3":"","pic3":"","url4":"","pic4":""}}}}},"catalog_item_repeat":{"model":[{"text":"branch","sub_item_repeat":{"config":{"title":"次级标题","max":10,"controller":"A_2"},"model":[{"text":"ok","url":"yayaya","$$hashKey":"object:75"},{"$$hashKey":"object:81","text":"555","url":"hehe"}]},"$$hashKey":"object:73","id":0},{"text":"出境度假游","sub_item_repeat":{"config":{"title":"次级标题","max":10,"controller":"A_2"},"model":[{"text":"美洲","url":"www.gzl.com.cn","$$hashKey":"object:78"},{"$$hashKey":"object:70","text":"欧洲","url":"BBB"},{"$$hashKey":"object:74","text":"日本","url":"CCC"},{"$$hashKey":"object:91","text":"韩国"},{"$$hashKey":"object:97","text":"海岛"},{"$$hashKey":"object:102","text":"泰国"},{"$$hashKey":"object:108","text":"马来西亚"}]},"$$hashKey":"object:76","id":1},{"text":"321","sub_item_repeat":{"config":{"title":"次级标题","max":10,"controller":"A_2"},"model":[{"text":"456","url":"789","$$hashKey":"object:164"}]},"$$hashKey":"object:159","id":2}],"config":{"title":"推荐分类","max":5,"controller":"A_4","model":{"text":"","sub_item_repeat":{"config":{"title":"次级标题","max":10,"controller":"A_2"},"model":[{"text":"","url":""}]}}}},"config":{"title":"分类栏目","node-type":"parent","data_num":3}};
     
 
 
@@ -79,17 +79,51 @@ dataScope.factory('sData',function(){
             "sub_item_repeat": {
                 "config": {
                     "title": "次级标题",
-                    "max": 10
+                    "max": 10,
+                    "controller":'A_2'
                 },
                 "model": [{"text": "", "url": ""}]
             }
         }
     });
+
+    justifyModel(root.catalog.catalog_item_repeat.model);
+
+    function justifyModel(arr){
+        for(var i=0;i<arr.length;i++){
+            $.extend(arr[i],{
+                "id":i
+            })
+        }
+    }
+
     $.extend(root.catalog.catalog_banner_repeat.config, {
         "title": "焦点图",
         "max": 4,
-        "controller": "A_4"
+        "controller": "B_2",
+        "option": {
+            "config": [{"id": 0, "name": "单图", "value": "default"}, {"id": 1, "name": "多图", "value": "four_in_one"}],
+            "default": {
+                "model": {"text": "", "type": "defualt", "url": "", "pic": ""}
+            },
+            "four_in_one": {
+                "model": {
+                    "text": "",
+                    "type": "four_in_one",
+                    "url1": "",
+                    "pic1": "",
+                    "url2": "",
+                    "pic2": "",
+                    "url3": "",
+                    "pic3": "",
+                    "url4": "",
+                    "pic4": ""
+                }
+            }
+        },
+        "model": {"text": "", "type": "defualt", "url": "", "pic": ""}
     });
+
 
     return root;
 });

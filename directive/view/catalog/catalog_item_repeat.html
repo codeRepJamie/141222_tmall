@@ -1,11 +1,11 @@
-<section class="js-catalog_item_repeat">
-    <div class="cat-block WL03cat-block-{{$index}}" ng-repeat="item in model track by $index">
+<section class="js-catalog_item_repeat"  ng-repeat="item in model track by $index">
+    <div class="cat-block WL03cat-block-{{$index}}">
         <div class="cat-father" ng-bind="item.text" ></div>
 
             <!-- TODO angular:次级标题 -->
-            <div class="cat-child" tm-elemtary-repeat tm-repeat-index="{{$index}}" tm-parent-name="{{itemName}}" tm-item-name="sub_item_repeat" tm-item-view="sub_item_repeat"></div>
+            <div class="cat-child" tm-elemtary-repeat tm-repeat-index="item.id" tm-parent-name="{{itemName}}" tm-item-name="sub_item_repeat" tm-item-view="sub_item_repeat"></div>
             <!-- angular:次级标题 End -->
-        <div class="line {{$index==4?'hidden':''}}">&nbsp;</div>
-    </div>
 
+    </div>
+    <div class="line {{$index==4?'hidden':''}}">&nbsp;</div>
 </section>

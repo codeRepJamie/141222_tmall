@@ -11,33 +11,50 @@ var directive=angular.module('tmDirective',[]);
     return str;
 }*/
 
-function bindPannel($scope,$element,$itemName){
+function bindPannel($scope,$element,$compile){
     $scope.editItem=function(index){
-        //console.log($element.find('.sub-list-model'),index);
-        var controller='<div tm-sub-list-control-model tm-mod-name="'+scope.moduleName+'" tm-item-name="'+item+'" tm-sub-list-name="'+''+'" tm-model-controller="'+scope.module[item]['config']['controller']+'"></div>';
-        $element.find('.sub-list-model').html('').html($compile(angular.element(controller))($scope));
-
+        var controller='<div tm-sub-list-control-model tm-mod-name="'+$scope.moduleName+'" tm-item-name="'+$scope.itemName+'" tm-sub-list-index="'+index+'" tm-model-controller="'+$scope.item['config']['model']['sub_item_repeat']['config']['controller']+'"></div>';
+        $element.html('').html($compile(angular.element(controller))($scope));
     };
     $scope.addItem=function() {
         if($scope.model[0]&&!$scope.item.config.max||($scope.model.length<$scope.item.config.max || alert('最多不能超过'+$scope.item.config.max+'项！'))){
-            //console.log(hashRandom(6));
-            /*function addHashKey(model){
-                if(!model.hasOwnProperty('model')){
-                    model['$$hashKey']='object:'+ hashRandom(6);
-                    return model
-                }else{
-                    addHashKey(model['model']);
-                }
-            }*/
             var newModel = $.extend(/*true,*/{}, $scope.item.config.model);
             $scope.model.push(newModel);
-            //console.log($scope.model);
         }
     };
     $scope.delete=function(i){
         $scope.model.splice(i,1);
-    }
+    };
+    $scope.return=function(){
+        //console.log($scope);
+        var controller='<div tm-control-model tm-mod-name="'+$scope.moduleName+'" tm-item-name="'+$scope.itemName+'" tm-model-controller="'+$scope.module[$scope.itemName]['config']['controller']+'"></div>';
+        console.log(controller);
+        $element.html('').html($compile(angular.element(controller))($scope));
+    };
 }
+
+directive.directive('tmSubListControlModel', function() {
+    return {
+        restrict: 'A',
+        scope:{
+            moduleName:'@tmModName',
+            itemName:'@tmItemName',
+            repeatIndex:'@tmSubListIndex'
+        },
+        templateUrl: function(elem, attr){
+            return 'directive/controller/model_'+attr.tmModelController+'.html'
+        },
+        replace: true,
+        controller:function($scope,tmModel,$element,$compile){
+            $scope.module=tmModel.getModule($scope.moduleName);
+            $scope.item=tmModel.getItem($scope.moduleName,$scope.itemName)['model'][$scope.repeatIndex]['sub_item_repeat'];
+            $scope.model=$scope.item.model;
+            $scope.isSub=true;
+            bindPannel($scope,$element,$compile);
+        }
+    };
+});
+
 
 directive.directive('tmControlModel', function() {
     return {
@@ -50,10 +67,10 @@ directive.directive('tmControlModel', function() {
             return 'directive/controller/model_'+attr.tmModelController+'.html'
         },
         replace: true,
-        controller:function($scope,tmModel,$element){
+        controller:function($scope,tmModel,$element,$compile){
             $scope.item=tmModel.getItem($scope.moduleName,$scope.itemName);
             $scope.model=tmModel.getModel($scope.moduleName,$scope.itemName);
-            bindPannel($scope,$element,$scope.itemName);
+            bindPannel($scope,$element,$compile);
         }
     };
 });
@@ -116,6 +133,7 @@ directive.directive('tmParent',function($compile) {
                                 click: function () {
                                     tmSaveData(scope.module, scope.module.config.data_num);
                                     $(this).dialog("close");
+                                    //location.reload();
                                 }
                             },
                             {
@@ -177,7 +195,7 @@ directive.directive('tmElemtaryRepeat',function() {
             itemName:'@tmItemName',
             itemView:'@tmItemView',
             parentName:'@tmParentName',
-            repeatIndex:'@tmRepeatIndex'
+            repeatIndex:'=tmRepeatIndex'
         },
         //tranclude:true,
         controller:function($scope){
@@ -191,11 +209,12 @@ directive.directive('tmElemtaryRepeat',function() {
             };
         },
         link:function($scope, $element,$attrs,ctrls){
-            console.log($scope.repeatIndex);
+
             $scope.moduleName=ctrls['moduleName'];
             $scope.module=ctrls['module'];
+            //console.log($scope.repeatIndex,$scope.parentName,$scope.repeatIndex);
+            if($scope.parentName&&$scope.repeatIndex!=undefined){
 
-            if($scope.parentName&&$scope.repeatIndex){
                 $scope.item=$scope.module[$scope.parentName]['model'][parseInt($scope.repeatIndex)][$scope.itemName];
              }else{
                 $scope.item=$scope.module[$scope.itemName];
@@ -215,7 +234,7 @@ directive.directive('tmElemtaryRepeat',function() {
 directive.directive('tmDraggable',function() {
     return {
         restrict : 'A',
-        link : function($scope, $element,$attrs,$ctrls) {
+        link : function($scope, $element) {
             var start=0;
                 $($element).sortable({
                     axis: 'y',
@@ -227,12 +246,41 @@ directive.directive('tmDraggable',function() {
                         $scope.model.movePos(start,ui.item.index());
                         $scope.$broadcast('reDefinedScope');
                         $scope.$apply(function(){
-
+                            //console.log($scope,$element)
                         });
                         //console.log($scope.model);
                         //$scope.$broadcast('reDefinedScope');
                     }
                 });
+
+        }
+    }
+});
+
+
+directive.directive('tmSelect',function() {
+    return {
+        restrict : 'A',
+        link : function($scope, $element,$attrs,$ctrls) {
+            $element.bind('change',function(){
+                $scope.modelItem.type=$element.val();
+                console.log($scope.item.model);
+            });
+        },
+        controller:function($scope,$element){
+            //console.log($scope.modelItem);
+            for(var i=0;i<$scope.item.config.option.config.length;i++){
+
+                if($scope.modelItem.type==$scope.item.config.option.config[i]['value']){
+                    $scope.default=$scope.item.config.option.config[i];
+                    return false;
+                }
+            }
+            /*if(){
+                $scope.default=$scope.item.config.option.config[0];
+            }else{
+                $scope.default=$scope.item.config.option.config[1];
+            }*/
 
         }
     }

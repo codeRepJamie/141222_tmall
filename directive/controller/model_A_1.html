@@ -1,5 +1,5 @@
 <div class="model">
-    <div class="title">设置标题:<input type="text" ng-model="item.config.title"/>:<a class="funcLink" href="javascript:void(0);" ng-click="addItem()">添加一项</a></div>
+    <div class="title">设置标题:<input type="text" ng-model="item.config.title"/>:<a class="funcLink" href="javascript:void(0);" ng-click="addItem()">添加一项</a><a class="funcLink" href="javascript:void(0);" ng-show="isSub" ng-click="return()">返回上一层</a></div>
     <ul tm-draggable>
         <li ng-class-even="'even'" ng-repeat="item in model">
             <input class="keyWords" type="text" ng-model="item.text"/>

@@ -1,0 +1,25 @@
+<div class="model model_B_2">
+    <div class="title">设置{{item.config.title}}:<a class="funcLink" href="javascript:void(0);"
+                                                  ng-click="addItem()">添加一项</a></div>
+    <ul tm-draggable>
+        <li class="pic clear-fix" ng-class-even="'even'" ng-repeat="modelItem in model">
+            <img class="picture" ng-src="{{modelItem.pic}}">
+
+            <div class="inputCont">
+                <p>图片标题:<input class="url" type="text" ng-model="modelItem.text"></p>
+                <p>图片类型:<!--<select name="mySelect"
+                                ng-options="option.name for option in item.config.option.config track by $index"
+                                ng-model="option"
+                        ></select>-->
+                    <select tm-select name="select" ng-options="option.name for option in item.config.option.config track by option.value" ng-model="default">
+                        <!--<option ng-repeat="option in item.config.option.config track by $index" value="{{option.value}}">{{option.name}}</option>-->
+                    </select>
+                </p>
+                <p>图片地址:<input class="url" type="text" ng-model="modelItem.pic"></p>
+                <p>目标地址:<input class="url" type="text" ng-model="modelItem.url"></p>
+            </div>
+            <a href="javascript:void(0);" class="ui-button-icon-primary ui-icon ui-icon-closethick close" ng-click="delete($index)"></a>
+        </li>
+
+    </ul>
+</div>

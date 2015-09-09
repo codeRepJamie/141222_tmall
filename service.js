@@ -29,6 +29,9 @@ service.factory('tmSaveData',['$http',function($http){
 //Model_A_1
 service.factory('tmModel',function($rootScope){
     return {
+        getModule:function(mod){
+            return $rootScope.data[mod];
+        },
         getItem:function(mod,item){
             return $rootScope.data[mod][item];
         },

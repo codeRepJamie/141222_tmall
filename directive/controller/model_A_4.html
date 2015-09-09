@@ -11,7 +11,10 @@
                                                                                       href="javascript:void(0);"
                                                                                       ng-click="editItem($index)">编辑该项</a>
                     <ul class="list clear-fix">
-                        <li ng-repeat="subItem in item.sub_item_repeat.model" ng-bind="subItem.text"></li>
+                        <li ng-repeat="subItem in item.sub_item_repeat.model" >
+                            <i class="title">标题:<span ng-bind="subItem.text"></span></i>
+                            <i class="url">URL:<span ng-bind="subItem.url"></span></i>
+                        </li>
                     </ul>
                 </div>
                 <a href="javascript:void(0);" class="ui-button-icon-primary ui-icon ui-icon-closethick close"
