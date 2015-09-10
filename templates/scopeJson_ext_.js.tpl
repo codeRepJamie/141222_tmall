@@ -13,7 +13,9 @@ dataScope.factory('sData',function(){
     <!-- {line#3} -->
     root.catalog={$remark#0};
     <!-- {/line} -->
-
+    <!-- {line#4} -->
+    root.hotSale={$remark#0};
+    <!-- {/line} -->
 
 
     dataConfig(root);

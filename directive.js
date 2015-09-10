@@ -236,23 +236,24 @@ directive.directive('tmDraggable',function() {
         restrict : 'A',
         link : function($scope, $element) {
             var start=0;
+            if($scope.item.config.max!=1) {
                 $($element).sortable({
                     axis: 'y',
                     cursor: "move",
-                    start:function(event, ui){
-                        start= ui.item.index();
+                    start: function (event, ui) {
+                        start = ui.item.index();
                     },
-                    stop:function(event, ui ){
-                        $scope.model.movePos(start,ui.item.index());
+                    stop: function (event, ui) {
+                        $scope.model.movePos(start, ui.item.index());
                         $scope.$broadcast('reDefinedScope');
-                        $scope.$apply(function(){
+                        $scope.$apply(function () {
                             //console.log($scope,$element)
                         });
                         //console.log($scope.model);
                         //$scope.$broadcast('reDefinedScope');
                     }
                 });
-
+            }
         }
     }
 });
