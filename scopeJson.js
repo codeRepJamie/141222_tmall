@@ -11,118 +11,12 @@ dataScope.factory('sData',function(){
     root.callcenter={"travel_repeat":{"config":{"title":"旅游度假","node-type":"elemtary-reapeat","max":10,"controller":"A_3","model":{"text":""}},"model":[{"$$hashKey":"object:7","text":"坤坤"},{"$$hashKey":"object:44","text":"大吉"},{"$$hashKey":"object:49","text":"岚岚"},{"$$hashKey":"object:53","text":"大斌"},{"$$hashKey":"object:58","text":"梵梵"}]},"ticket_repeat":{"config":{"title":"订房订票","node-type":"elemtary-reapeat","max":10,"controller":"A_3","model":{"text":""}},"model":[{"$$hashKey":"object:7","text":"云儿"},{"$$hashKey":"object:63","text":"珊珊"},{"$$hashKey":"object:68","text":"斋斋"}]},"config":{"title":"旺旺客服","node-type":"parent","data_num":2}};
     
     
-    root.catalog={"catalog_banner_repeat":{"model":[{"$$hashKey":"object:7","text":"123","type":"default","url":"12222","pic":"1222"},{"text":"呃呃呃","type":"four_in_one","url":"谢谢谢谢","pic":"哥哥哥哥","$$hashKey":"object:95"}],"config":{"title":"焦点图","max":4,"controller":"B_2","model":{"text":"","type":"defualt","url":"","pic":""},"option":{"config":[{"id":0,"name":"单图","value":"default"},{"id":1,"name":"多图","value":"four_in_one"}],"default":{"model":{"text":"","type":"defualt","url":"","pic":""}},"four_in_one":{"model":{"text":"","type":"four_in_one","url1":"","pic1":"","url2":"","pic2":"","url3":"","pic3":"","url4":"","pic4":""}}}}},"catalog_item_repeat":{"model":[{"text":"branch","sub_item_repeat":{"config":{"title":"次级标题","max":10,"controller":"A_2"},"model":[{"text":"ok","url":"yayaya","$$hashKey":"object:75"},{"$$hashKey":"object:81","text":"555","url":"hehe"}]},"$$hashKey":"object:73","id":0},{"text":"出境度假游","sub_item_repeat":{"config":{"title":"次级标题","max":10,"controller":"A_2"},"model":[{"text":"美洲","url":"www.gzl.com.cn","$$hashKey":"object:78"},{"$$hashKey":"object:70","text":"欧洲","url":"BBB"},{"$$hashKey":"object:74","text":"日本","url":"CCC"},{"$$hashKey":"object:91","text":"韩国"},{"$$hashKey":"object:97","text":"海岛"},{"$$hashKey":"object:102","text":"泰国"},{"$$hashKey":"object:108","text":"马来西亚"}]},"$$hashKey":"object:76","id":1},{"text":"321","sub_item_repeat":{"config":{"title":"次级标题","max":10,"controller":"A_2"},"model":[{"text":"456","url":"789","$$hashKey":"object:164"}]},"$$hashKey":"object:159","id":2}],"config":{"title":"推荐分类","max":5,"controller":"A_4","model":{"text":"","sub_item_repeat":{"config":{"title":"次级标题","max":10,"controller":"A_2"},"model":[{"text":"","url":""}]}}}},"config":{"title":"分类栏目","node-type":"parent","data_num":3}};
+    root.catalog={"catalog_banner_repeat":{"model":[{"text":"3","type":"default","url":"http://www.baidu.com/","pic":"https://gdp.alicdn.com/imgextra/i1/2067413496/TB20THMeFXXXXcBXXXXXXXXXXXX_!!2067413496.jpg","$$hashKey":"object:108"},{"$$hashKey":"object:7","text":"123","type":"default","url":"12222","pic":"https://gdp.alicdn.com/imgextra/i2/2067413496/TB2iBm1fXXXXXbsXXXXXXXXXXXX_!!2067413496.jpg"},{"text":"呃呃呃","type":"four_in_one","url":"谢谢谢谢","pic":"哥哥哥哥","$$hashKey":"object:95","pic1":"https://gdp.alicdn.com/imgextra/i4/2067413496/TB2BDxmbFXXXXXSXpXXXXXXXXXX_!!2067413496.jpg","pic2":"https://gdp.alicdn.com/imgextra/i2/2067413496/TB2bghtbFXXXXX0XXXXXXXXXXXX_!!2067413496.jpg","pic3":"//gdp.alicdn.com/imgextra/i3/2067413496/TB28uRkbFXXXXb0XpXXXXXXXXXX_!!2067413496.jpg","pic4":"//gdp.alicdn.com/imgextra/i4/2067413496/TB2FqxubFXXXXXpXXXXXXXXXXXX_!!2067413496.jpg","url1":"http://www.gzl.com.cn/","url2":"http://www.qq.com/","url3":"http://www.baidu.com/","url4":"http://www.google.com/"}],"config":{"title":"焦点图","max":4,"controller":"B_2","model":{"text":"","type":"defualt","url":"","pic":""},"option":{"config":[{"id":0,"name":"单图","value":"default"},{"id":1,"name":"多图","value":"four_in_one"}],"default":{"config":{"picSize-x":205,"picSize-y":109},"model":{"text":"","type":"defualt","url":"","pic":""}},"four_in_one":{"config":{"picSize_1-x":140,"picSize_1-y":109,"picSize_2-x":62,"picSize_2-y":35},"model":{"text":"","type":"four_in_one","url1":"","pic1":"","url2":"","pic2":"","url3":"","pic3":"","url4":"","pic4":""}}},"defaultSize":{"picSize-x":205,"picSize-y":109}}},"catalog_item_repeat":{"model":[{"text":"branch","sub_item_repeat":{"config":{"title":"次级标题","max":10,"controller":"A_2"},"model":[{"text":"ok","url":"yayaya","$$hashKey":"object:75"},{"$$hashKey":"object:81","text":"555","url":"hehe"}]},"$$hashKey":"object:73","id":0},{"text":"出境度假游","sub_item_repeat":{"config":{"title":"次级标题","max":10,"controller":"A_2"},"model":[{"text":"美洲","url":"www.gzl.com.cn","$$hashKey":"object:78"},{"$$hashKey":"object:70","text":"欧洲","url":"BBB"},{"$$hashKey":"object:74","text":"日本","url":"CCC"},{"$$hashKey":"object:91","text":"韩国"},{"$$hashKey":"object:97","text":"海岛"},{"$$hashKey":"object:102","text":"泰国"},{"$$hashKey":"object:108","text":"马来西亚"}]},"$$hashKey":"object:76","id":1},{"text":"321","sub_item_repeat":{"config":{"title":"次级标题","max":10,"controller":"A_2"},"model":[{"text":"456","url":"789","$$hashKey":"object:164"}]},"$$hashKey":"object:159","id":2}],"config":{"title":"推荐分类","max":5,"controller":"A_4","model":{"text":"","sub_item_repeat":{"config":{"title":"次级标题","max":10,"controller":"A_2"},"model":[{"text":"","url":""}]}}}},"config":{"title":"分类栏目","node-type":"parent","data_num":3}};
     
 
 
 
-    //店铺招牌设置
-    $.extend(root.headerStyle.config, {"title": "店铺招牌", "node_type": "parent", "data_num": 0});
-    $.extend(root.headerStyle.hot_search_repeat.config, {
-        "node_type": "elemtary-reapeat",
-        "controller": "A_1",
-        "model": {"text": "", "url": ""}
-    });
-    $.extend(root.headerStyle.menu_repeat.config, {
-        "title": "导航栏",
-        "node-type": "elemtary-reapeat",
-        "max": 10,
-        "controller": "A_2",
-        "model": {"text": "", "url": ""}
-    });
-
-    //焦点图设置
-    $.extend(root.banner.config, {"title": "焦点图", "node-type": "parent", "data_num": 1});
-    $.extend(root.banner.banner_pic_repeat.config, {
-        "title": "焦点图详情",
-        "node-type": "elemtary-reapeat",
-        "controller": "B_1",
-        "max": 7,
-        "picSize-x": "140",
-        "picSize-y": "31",
-        "model": {
-            "url": "",
-            "pic": ""
-        }
-    });
-
-    //旺旺客服设置
-    $.extend(root.callcenter.config, {"title": "旺旺客服", "node-type": "parent", "data_num": 2});
-    $.extend(root.callcenter.travel_repeat.config, {
-        "node-type": "elemtary-reapeat",
-        "max": 10,
-        "controller": "A_3",
-        "model": {
-            "text": ""
-        }
-    });
-    $.extend(root.callcenter.ticket_repeat.config, {
-        "node-type": "elemtary-reapeat",
-        "max": 10,
-        "controller": "A_3",
-        "model": {
-            "text": ""
-        }
-    });
-
-    //分类栏目设置
-    $.extend(root.catalog.config, {
-        "title": "分类栏目",
-        "data_num": 3
-    });
-    $.extend(root.catalog.catalog_item_repeat.config, {
-        "title": "推荐分类",
-        "max": 5,
-        "controller": "A_4",
-        "model": {
-            "text": "",
-            "sub_item_repeat": {
-                "config": {
-                    "title": "次级标题",
-                    "max": 10,
-                    "controller":'A_2'
-                },
-                "model": [{"text": "", "url": ""}]
-            }
-        }
-    });
-
-    justifyModel(root.catalog.catalog_item_repeat.model);
-
-    function justifyModel(arr){
-        for(var i=0;i<arr.length;i++){
-            $.extend(arr[i],{
-                "id":i
-            })
-        }
-    }
-
-    $.extend(root.catalog.catalog_banner_repeat.config, {
-        "title": "焦点图",
-        "max": 4,
-        "controller": "B_2",
-        "option": {
-            "config": [{"id": 0, "name": "单图", "value": "default"}, {"id": 1, "name": "多图", "value": "four_in_one"}],
-            "default": {
-                "model": {"text": "", "type": "defualt", "url": "", "pic": ""}
-            },
-            "four_in_one": {
-                "model": {
-                    "text": "",
-                    "type": "four_in_one",
-                    "url1": "",
-                    "pic1": "",
-                    "url2": "",
-                    "pic2": "",
-                    "url3": "",
-                    "pic3": "",
-                    "url4": "",
-                    "pic4": ""
-                }
-            }
-        },
-        "model": {"text": "", "type": "defualt", "url": "", "pic": ""}
-    });
+    dataConfig(root);
 
 
     return root;

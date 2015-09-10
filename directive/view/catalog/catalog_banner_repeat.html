@@ -1,0 +1,46 @@
+<li ng-repeat="item in model track by $index" class="-_-switchable-panel-internal495" style="display:block;float:left;">
+    <!-- default -->
+    <a ng-if="item.type=='default'" target="_blank" ng-href="{{item.url}}"
+       data-spm-wangpu-module-id="5003-9880563001"
+       data-spm-anchor-id="a1z10.1-b.w5003-9880563001.26">
+        <img width="790" height="420"
+             src="//assets.alicdn.com/s.gif"
+             data-ks-lazyload="{{item.pic}}"/>
+    </a>
+
+    <!-- four-in-one -->
+    <a  ng-if="item.type=='four_in_one'" class="four_in_one time-count-four-in-one"
+        style="margin:0 5px;width:540px;height:420px;background:url({{item.pic1}});"
+        ng-href="{{item.url1}}"
+        target="_blank" data-spm-wangpu-module-id="5003-9880563001"
+        data-spm-anchor-id="a1z10.1-b.w5003-9880563001.20">
+        <div class="mask">&nbsp;</div>
+    </a>
+    <a  ng-if="item.type=='four_in_one'"  class="four_in_one" style="width:240px;height:140px;"
+        ng-href="{{item.url2}}"
+        target="_blank" data-spm-wangpu-module-id="5003-9880563001"
+        data-spm-anchor-id="a1z10.1-b.w5003-9880563001.27"> <img
+        src="//assets.alicdn.com/s.gif"
+        data-ks-lazyload="{{item.pic2}}"
+        width="240" height="140"/>
+        <div class="mask">&nbsp;</div>
+    </a>
+    <a  ng-if="item.type=='four_in_one'" class="four_in_one" style="width:240px;height:140px;"
+        ng-href="{{item.url3}}"
+        target="_blank" data-spm-wangpu-module-id="5003-9880563001"
+        data-spm-anchor-id="a1z10.1-b.w5003-9880563001.28"> <img
+        src="//assets.alicdn.com/s.gif"
+        data-ks-lazyload="{{item.pic3}}"
+        width="240" height="140"/>
+        <div class="mask">&nbsp;</div>
+    </a>
+    <a  ng-if="item.type=='four_in_one'" class="four_in_one" style="width:240px;height:140px;"
+        ng-href="{{item.url4}}"
+        target="_blank" data-spm-wangpu-module-id="5003-9880563001"
+        data-spm-anchor-id="a1z10.1-b.w5003-9880563001.29"> <img
+        src="//assets.alicdn.com/s.gif"
+        data-ks-lazyload="{{item.pic4}}"
+        width="240" height="140"/>
+        <div class="mask">&nbsp;</div>
+    </a>
+</li>
