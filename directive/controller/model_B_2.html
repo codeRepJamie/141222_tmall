@@ -3,13 +3,13 @@
                                                   ng-click="addItem()">添加一项</a></div>
     <ul tm-draggable>
         <li class="pic clear-fix" ng-class-even="'even'" ng-repeat="modelItem in model">
-            <div class="picture" style="width: {{item.config['defaultSize']['picSize-x']}}px;height:{{item.config['defaultSize']['picSize-y']}}px">
-                <div ng-if="modelItem.type=='default'"><img width="{{item.config.option[modelItem.type]['config']['picSize-x']}}" height="{{item.config.option[modelItem.type]['config']['picSize-y']}}" ng-src="{{modelItem.pic}}"></div>
+            <div class="picture" style="width: {{miniSize(item.config['defaultSize']['picSize-x'])}}px;height:{{miniSize(item.config['defaultSize']['picSize-y'])}}px">
+                <div ng-if="modelItem.type=='default'"><img width="{{miniSize(item.config.option[modelItem.type]['config']['picSize-x'])}}" height="{{miniSize(item.config.option[modelItem.type]['config']['picSize-y'])}}" ng-src="{{modelItem.pic}}"></div>
                 <div ng-if="modelItem.type=='four_in_one'" class="four-in-one">
-                    <img class="four-in-one-1" width="{{item.config.option[modelItem.type]['config']['picSize_1-x']}}" height="{{item.config.option[modelItem.type]['config']['picSize_1-y']}}" ng-src="{{modelItem.pic1}}">
-                    <img class="four-in-one-2" width="{{item.config.option[modelItem.type]['config']['picSize_2-x']}}" height="{{item.config.option[modelItem.type]['config']['picSize_2-y']}}" ng-src="{{modelItem.pic2}}">
-                    <img class="four-in-one-3" width="{{item.config.option[modelItem.type]['config']['picSize_2-x']}}" height="{{item.config.option[modelItem.type]['config']['picSize_2-y']}}" ng-src="{{modelItem.pic3}}">
-                    <img class="four-in-one-4" width="{{item.config.option[modelItem.type]['config']['picSize_2-x']}}" height="{{item.config.option[modelItem.type]['config']['picSize_2-y']}}" ng-src="{{modelItem.pic4}}">
+                    <img class="four-in-one-1" width="{{miniSize(item.config.option[modelItem.type]['config']['picSize_1-x'])}}" height="{{miniSize(item.config.option[modelItem.type]['config']['picSize_1-y'])}}" ng-src="{{modelItem.pic1}}">
+                    <img class="four-in-one-2" width="{{miniSize(item.config.option[modelItem.type]['config']['picSize_2-x'])}}" height="{{miniSize(item.config.option[modelItem.type]['config']['picSize_2-y'])}}" ng-src="{{modelItem.pic2}}">
+                    <img class="four-in-one-3" width="{{miniSize(item.config.option[modelItem.type]['config']['picSize_2-x'])}}" height="{{miniSize(item.config.option[modelItem.type]['config']['picSize_2-y'])}}" ng-src="{{modelItem.pic3}}">
+                    <img class="four-in-one-4" width="{{miniSize(item.config.option[modelItem.type]['config']['picSize_2-x'])}}" height="{{miniSize(item.config.option[modelItem.type]['config']['picSize_2-y'])}}" ng-src="{{modelItem.pic4}}">
                 </div>
 
             </div>

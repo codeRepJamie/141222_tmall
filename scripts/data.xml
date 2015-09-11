@@ -47,7 +47,17 @@
     <price>0</price>
     <link>##</link>
     <remark>
-      <r0 tag="设置1F热门目的地推荐">{"config":{"title":"1F热门目的地推荐","data_num":4},"big_ads_left":{"model":[{"pic":"https://gdp.alicdn.com/imgextra/i4/2067413496/TB2BDxmbFXXXXXSXpXXXXXXXXXX_!!2067413496.jpg","url":"https://cgzl.alitrip.com/","$$hashKey":"object:99"}],"config":{"title":"广告左","max":1,"controller":"B_1","picSize-x":81,"picSize-y":116,"model":{"pic":"","url":""}}},"big_ads_top":{"model":[{"pic":"https://gdp.alicdn.com/imgextra/i1/2067413496/TB253GvbVXXXXaTXXXXXXXXXXXX_!!2067413496.jpg","url":"123","$$hashKey":"object:101"}],"config":{"title":"广告上","max":1,"controller":"B_1","picSize-x":85,"picSize-y":57,"model":{"pic":"","url":""}}},"big_ads_bottom":{"model":[{"pic":"https://gdp.alicdn.com/imgextra/i3/2067413496/TB2aCdOcFXXXXbfXXXXXXXXXXXX_!!2067413496.jpg","url":"234","$$hashKey":"object:103"}],"config":{"title":"广告下","max":1,"controller":"B_1","picSize-x":85,"picSize-y":57,"model":{"pic":"","url":""}}},"big_ads_right":{"model":[{"pic":"https://gdp.alicdn.com/imgextra/i2/2067413496/TB2PJsPcVXXXXbUXpXXXXXXXXXX_!!2067413496.jpg","url":"12323ersds","$$hashKey":"object:105"}],"config":{"title":"广告右","max":1,"controller":"B_1","picSize-x":81,"picSize-y":116,"model":{"pic":"","url":""}}}}</r0>
+      <r0 tag="设置1F热门目的地推荐">{"config":{"title":"1F热门目的地推荐","data_num":4},"big_ads_left":{"model":[{"pic":"https://gdp.alicdn.com/imgextra/i4/2067413496/TB2BDxmbFXXXXXSXpXXXXXXXXXX_!!2067413496.jpg","url":"https://cgzl.alitrip.com/","$$hashKey":"object:99"}],"config":{"title":"广告左","max":1,"controller":"B_1","picSize-x":313,"picSize-y":446,"model":{"pic":"","url":""}}},"big_ads_top":{"model":[{"pic":"https://gdp.alicdn.com/imgextra/i1/2067413496/TB253GvbVXXXXaTXXXXXXXXXXXX_!!2067413496.jpg","url":"123","$$hashKey":"object:101"}],"config":{"title":"广告上","max":1,"controller":"B_1","picSize-x":326,"picSize-y":220,"model":{"pic":"","url":""}}},"big_ads_bottom":{"model":[{"pic":"https://gdp.alicdn.com/imgextra/i3/2067413496/TB2aCdOcFXXXXbfXXXXXXXXXXXX_!!2067413496.jpg","url":"234","$$hashKey":"object:103"}],"config":{"title":"广告下","max":1,"controller":"B_1","picSize-x":326,"picSize-y":220,"model":{"pic":"","url":""}}},"big_ads_right":{"model":[{"pic":"https://gdp.alicdn.com/imgextra/i2/2067413496/TB2PJsPcVXXXXbUXpXXXXXXXXXX_!!2067413496.jpg","url":"12323ersds","$$hashKey":"object:105"}],"config":{"title":"广告右","max":1,"controller":"B_1","picSize-x":313,"picSize-y":446,"model":{"pic":"","url":""}}}};</r0>
+    </remark>
+  </line>
+  <line id="5">
+    <display>Y</display>
+    <soldout>N</soldout>
+    <title>请不要在此直接修改</title>
+    <price>0</price>
+    <link>##</link>
+    <remark>
+      <r0 tag="设置2F本周爆款">{"config":{"title":"2F本周爆款","data_num":5},"week_sale_repeat":{"model":[{"pic":"https://gdp.alicdn.com/imgextra/i2/2067413496/TB2jokDeFXXXXazXpXXXXXXXXXX_!!2067413496.jpg","url":"https://cgzl.alitrip.com/","$$hashKey":"object:110"},{"pic":"https://gdp.alicdn.com/imgextra/i1/2067413496/TB24cDzfXXXXXXAXXXXXXXXXXXX_!!2067413496.jpg","url":"","$$hashKey":"object:113"},{"pic":"https://gdp.alicdn.com/imgextra/i2/2067413496/TB2bHZSeFXXXXaQXXXXXXXXXXXX_!!2067413496.jpg","url":"","$$hashKey":"object:118"},{"pic":"https://gdp.alicdn.com/imgextra/i1/2067413496/TB2U0o2eFXXXXXhXXXXXXXXXXXX_!!2067413496.jpg","url":"","$$hashKey":"object:123"}],"config":{"title":"本周爆款产品","max":null,"controller":"B_1","picSize-x":247,"picSize-y":380,"model":{"pic":"","url":""}}}}</r0>
     </remark>
   </line>
 </root>

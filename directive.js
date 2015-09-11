@@ -70,6 +70,11 @@ directive.directive('tmControlModel', function() {
         controller:function($scope,tmModel,$element,$compile){
             $scope.item=tmModel.getItem($scope.moduleName,$scope.itemName);
             $scope.model=tmModel.getModel($scope.moduleName,$scope.itemName);
+            $scope.miniSize=function(num,scal){
+                if(!scal)
+                    scal=3.83;
+                return Math.floor(num/scal);
+            };
             bindPannel($scope,$element,$compile);
         }
     };
