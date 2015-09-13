@@ -1,0 +1,40 @@
+<section id="js-province">
+    <div class="province lineCont gzl_block">
+        <div data-widget-type="Carousel" data-widget-config="{'nextBtnCls':'next','duration':0.2,'easing':'easeBoth','activeTriggerCls':'active','effect':'scrollx','interval':5,'navCls':'nav','triggerType':'click','prevBtnCls':'prev','contentCls':'body_content','autoplay':false}" class="ubd J_TWidget">
+            <div class="title" style="background-image:url(//gdp.alicdn.com/imgextra/i1/2067413496/TB2zES.bpXXXXaeXpXXXXXXXXXX_!!2067413496.jpg);">
+                <ul class="list nav">
+                    <li class="{{$index==0?'active':''}}" ng-repeat="modelItem in module.model track by modelItem.config.id">
+                        <a ng-bind="modelItem.config.title"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="content">
+                <div class="right_content">
+                    <div class="fontFw body_content">
+                        <div class="pd_content" ng-repeat="modelItem in module.model track by modelItem.config.id">
+                            <div class="col">
+                                <a class="item" ng-href="{{modelItem.config.url}}" target="_blank"> <img ng-src="{{modelItem.config.pic}}" height="645" width="240" /> </a>
+                            </div>
+                            <div class="itemCont">
+
+                                <a ng-repeat="modelRepeat in modelItem.model track by $index" ng-href="{{modelRepeat.url}}" target="_blank" class="pd {{$index%3==1?'mid':''}}">
+                                    <div class="img">
+                                        <img ng-src="{{modelRepeat.pic}}" width="229" height="229" alt="{{modelRepeat.title}}" />
+                                    </div>
+                                    <div class="text">
+                                        <h4 ng-bind="modelRepeat.title"></h4>
+                                        <p ng-bind="modelRepeat.sub_title"></p>
+                                    </div>
+                                    <div class="price">
+                                        {{modelRepeat.price}}<em>元</em>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
