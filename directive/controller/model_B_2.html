@@ -14,28 +14,28 @@
 
             </div>
 
-            <div class="inputCont">
-                <p>图片标题:<input class="url" type="text" ng-model="modelItem.text"></p>
-                <p>图片类型:
+            <ul class="inputCont">
+                <li>图片标题:<input class="keyWords" type="text" ng-model="modelItem.text"></li>
+                <li>图片类型:
                     <select tm-select name="select" ng-options="option.name for option in item.config.option.config track by option.value" ng-model="default">
                         <!--<option ng-repeat="option in item.config.option.config track by $index" value="{{option.value}}">{{option.name}}</option>-->
                     </select>
-                </p>
+                </li>
 
                 <!-- default -->
-                <p ng-if="modelItem.type=='default'">图片地址:<input class="url" type="text" ng-model="modelItem.pic"></p>
-                <p ng-if="modelItem.type=='default'">目标地址:<input class="url" type="text" ng-model="modelItem.url"></p>
+                <li ng-if="modelItem.type=='default'">图片地址:<input class="url" type="text" ng-model="modelItem.pic"></li>
+                <li ng-if="modelItem.type=='default'">目标地址:<input class="url" type="text" ng-model="modelItem.url"></li>
 
                 <!-- four in one -->
-                <p ng-if="modelItem.type=='four_in_one'">图片地址1:<input class="url" type="text" ng-model="modelItem.pic1"></p>
-                <p ng-if="modelItem.type=='four_in_one'">目标地址1:<input class="url" type="text" ng-model="modelItem.url1"></p>
-                <p ng-if="modelItem.type=='four_in_one'">图片地址2:<input class="url" type="text" ng-model="modelItem.pic2"></p>
-                <p ng-if="modelItem.type=='four_in_one'">目标地址2:<input class="url" type="text" ng-model="modelItem.url2"></p>
-                <p ng-if="modelItem.type=='four_in_one'">图片地址3:<input class="url" type="text" ng-model="modelItem.pic3"></p>
-                <p ng-if="modelItem.type=='four_in_one'">目标地址3:<input class="url" type="text" ng-model="modelItem.url3"></p>
-                <p ng-if="modelItem.type=='four_in_one'">图片地址4:<input class="url" type="text" ng-model="modelItem.pic4"></p>
-                <p ng-if="modelItem.type=='four_in_one'">目标地址4:<input class="url" type="text" ng-model="modelItem.url4"></p>
-            </div>
+                <li ng-if="modelItem.type=='four_in_one'">图片地址1:<input class="url" type="text" ng-model="modelItem.pic1"></li>
+                <li ng-if="modelItem.type=='four_in_one'">目标地址1:<input class="url" type="text" ng-model="modelItem.url1"></li>
+                <li ng-if="modelItem.type=='four_in_one'">图片地址2:<input class="url" type="text" ng-model="modelItem.pic2"></li>
+                <li ng-if="modelItem.type=='four_in_one'">目标地址2:<input class="url" type="text" ng-model="modelItem.url2"></li>
+                <li ng-if="modelItem.type=='four_in_one'">图片地址3:<input class="url" type="text" ng-model="modelItem.pic3"></li>
+                <li ng-if="modelItem.type=='four_in_one'">目标地址3:<input class="url" type="text" ng-model="modelItem.url3"></li>
+                <li ng-if="modelItem.type=='four_in_one'">图片地址4:<input class="url" type="text" ng-model="modelItem.pic4"></li>
+                <li ng-if="modelItem.type=='four_in_one'">目标地址4:<input class="url" type="text" ng-model="modelItem.url4"></li>
+            </ul>
             <a href="javascript:void(0);" class="ui-button-icon-primary ui-icon ui-icon-closethick close" ng-click="delete($index)"></a>
         </li>
 
