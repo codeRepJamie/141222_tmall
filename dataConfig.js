@@ -3,10 +3,56 @@
  */
 function justifyModel(arr) {
     for (var i = 0; i < arr.length; i++) {
-        $.extend(arr[i], {
-            "id": i
-        })
+        if(arguments[1]){
+            $.extend(arr[i][arguments[1]], {
+                "id": i
+            })
+        }else{
+            $.extend(arr[i], {
+                "id": i
+            })
+        }
+
     }
+}
+
+function clone(obj)
+{
+    var o,i,j,k;
+    if(typeof(obj)!="object" || obj===null)return obj;
+    if(obj instanceof(Array))
+    {
+        o=[];
+        i=0;j=obj.length;
+        for(;i<j;i++)
+        {
+            if(typeof(obj[i])=="object" && obj[i]!=null)
+            {
+                o[i]=arguments.callee(obj[i]);
+            }
+            else
+            {
+                o[i]=obj[i];
+            }
+        }
+    }
+    else
+    {
+        o={};
+        for(i in obj)
+        {
+            if(typeof(obj[i])=="object" && obj[i]!=null)
+            {
+                o[i]=arguments.callee(obj[i]);
+            }
+            else
+            {
+                o[i]=obj[i];
+            }
+        }
+    }
+
+    return o;
 }
 
 function dataConfig(root) {
@@ -197,6 +243,7 @@ function dataConfig(root) {
             });
         }
     })();
+
 //2F本周爆款设置
     (function () {
         var module = root.weekSale;
@@ -213,6 +260,162 @@ function dataConfig(root) {
                 "picSize-y": 380,
                 "model": {"pic": "", "url": ""}
             });
+        }
+    })();
+//3F出境游
+    (function(){
+        var module= root.outbound;
+        if(module){
+            $.extend(module.config,{
+                "title": "3F出境游", "data_num": 6,
+                "picSize-x": 240,
+                "picSize-y": 645,
+                "controller": "C_1",
+                "max": null,
+                "model": {
+                    "model": [{
+                        "pic": "",
+                        "url": "",
+                        "title": "标题",
+                        "sub_title": "次标题",
+                        "price": "0"
+                    }],
+                    "config": {
+                        "title": "标题",
+                        "max": 6,
+                        "pic": "",
+                        "url": "",
+                        "controller": "B_1",
+                        "picSize-x": 229,
+                        "picSize-y": 229,
+                        "model": {
+                            "pic": "",
+                            "url": "",
+                            "title": "标题",
+                            "sub_title": "次标题",
+                            "price": "0"
+                        }
+                    }
+                }
+            });
+            justifyModel(module.model,'config');
+        }
+    })();
+//4F港澳台
+    (function(){
+        var module= root.gangaotai;
+        if(module){
+            $.extend(module.config,{
+                "title": "4F港澳台", "data_num": 7,
+                "picSize-x": 240,
+                "picSize-y": 645,
+                "controller": "C_1",
+                "max": null,
+                "model": {
+                    "model": [{
+                        "pic": "",
+                        "url": "",
+                        "title": "标题",
+                        "sub_title": "次标题",
+                        "price": "0"
+                    }],
+                    "config": {
+                        "title": "标题",
+                        "max": 6,
+                        "pic": "",
+                        "url": "",
+                        "controller": "B_1",
+                        "picSize-x": 229,
+                        "picSize-y": 229,
+                        "model": {
+                            "pic": "",
+                            "url": "",
+                            "title": "标题",
+                            "sub_title": "次标题",
+                            "price": "0"
+                        }
+                    }
+                }
+            });
+            justifyModel(module.model,'config');
+        }
+    })();
+//5F国内游
+    (function(){
+        var module= root.inbound;
+        if(module){
+            $.extend(module.config,{
+                "title": "5F国内游", "data_num": 8,
+                "picSize-x": 240,
+                "picSize-y": 645,
+                "controller": "C_1",
+                "max": null,
+                "model": {
+                    "model": [{
+                        "pic": "",
+                        "url": "",
+                        "title": "标题",
+                        "sub_title": "次标题",
+                        "price": "0"
+                    }],
+                    "config": {
+                        "title": "标题",
+                        "max": 6,
+                        "pic": "",
+                        "url": "",
+                        "controller": "B_1",
+                        "picSize-x": 229,
+                        "picSize-y": 229,
+                        "model": {
+                            "pic": "",
+                            "url": "",
+                            "title": "标题",
+                            "sub_title": "次标题",
+                            "price": "0"
+                        }
+                    }
+                }
+            });
+            justifyModel(module.model,'config');
+        }
+    })();
+//6F周边游
+    (function(){
+        var module= root.province;
+        if(module){
+            $.extend(module.config,{
+                "title": "7F广东周边游", "data_num": 9,
+                "picSize-x": 240,
+                "picSize-y": 645,
+                "controller": "C_1",
+                "max": null,
+                "model": {
+                    "model": [{
+                        "pic": "",
+                        "url": "",
+                        "title": "标题",
+                        "sub_title": "次标题",
+                        "price": "0"
+                    }],
+                    "config": {
+                        "title": "标题",
+                        "max": 6,
+                        "pic": "",
+                        "url": "",
+                        "controller": "B_1",
+                        "picSize-x": 229,
+                        "picSize-y": 229,
+                        "model": {
+                            "pic": "",
+                            "url": "",
+                            "title": "标题",
+                            "sub_title": "次标题",
+                            "price": "0"
+                        }
+                    }
+                }
+            });
+            justifyModel(module.model,'config');
         }
     })();
 }

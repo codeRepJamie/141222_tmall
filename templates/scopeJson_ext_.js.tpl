@@ -19,6 +19,18 @@ dataScope.factory('sData',function(){
     <!-- {line#5} -->
     root.weekSale={$remark#0};
     <!-- {/line} -->
+    <!-- {line#6} -->
+    root.outbound={$remark#0};
+    <!-- {/line} -->
+    <!-- {line#7} -->
+    root.gangaotai={$remark#0};
+    <!-- {/line} -->
+    <!-- {line#8} -->
+    root.inbound={$remark#0};
+    <!-- {/line} -->
+    <!-- {line#9} -->
+    root.province={$remark#0};
+    <!-- {/line} -->
 
     dataConfig(root);
 

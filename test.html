@@ -161,6 +161,7 @@
     <script src="/subject/edit/jqueryui/ui/jquery.ui.button.js"></script>
     <script src="/subject/edit/jqueryui/ui/jquery.ui.dialog.js"></script>
     <script src="/subject/edit/jqueryui/ui/jquery.ui.effect.js"></script>
+    <script src="/subject/edit/jqueryui/ui/jquery.ui.tabs.js"></script>
     <script src="scripts/Angular.js"></script>
     <script src="scripts/angular-route-min.js"></script>
     <script src="config.js"></script>
@@ -198,8 +199,8 @@
 
         .raw-textarea {
             width: 100%;
-            height: 100%;
-
+            height: 99%;
+            box-sizing:border-box;
         }
 
         .editMaskHover {
@@ -312,6 +313,10 @@
             right: 0;
             bottom:0;
         }
+        /*addition*/
+        .ui-tabs .ui-tabs-nav li {
+            min-height: 28px;
+        }
     </style>
 
 
@@ -319,7 +324,7 @@
 
 <body  data-spm="1-b">
 <div ng-view></div>
-<h1 class="pageTitle">天猫代码生成页面v2.0.1 更新日期20150908 <a ng-href="{{setEdit()}}" ng-bind="isEdit?'停止装修此页面':'装修此页面'"></a></h1>
+<h1 class="pageTitle">天猫代码生成页面v2.1.1 更新日期20150914 <a ng-href="{{setEdit()}}" ng-bind="isEdit?'停止装修此页面':'装修此页面'"></a></h1>
 <script>
     with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&at_shoptype=2%5f110278490&at_isb=1&atp_isdpp=2v110278490&aplus&yunid=&IhWz0APQoD9Z&trid=0a67c41014416347381464777e&asid=AQAAAACyme1VI9pqVAAAAAAdHNao8Iy9ZA==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
 </script>
@@ -1617,25 +1622,77 @@
                         </div>
 
 
+                        <!-- data-title="自定义内容区"  2F出境游-->
+                        <div class="J_TModule" data-widgetid="9882021204"  data-componentid="5003"  data-spm='110.0.5003-9882021204'  microscope-data='5003-9882021204' data-title="自定义内容区" data-hoffset="1035"  >
+                            <div class="skin-box tb-module tshop-pbsm tshop-pbsm-shop-self-defined">
+                                <s class="skin-box-tp"><b></b></s>
+                                <div class="skin-box-bd clear-fix">
+                                    <span>
+                                        <!-- TODO angular:outBound -->
+                                        <div tm-parent tm-mod-name="outbound"></div>
+								        <!-- angular:outBound End -->
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
 
-                        <div class="J_TModule J_TAsyncModule" data-widgetid="10090941840"  id="shop10090941840"  data-componentid="5003"  data-spm='110.0.5003-10090941840'  microscope-data='5003-10090941840' data-title="自定义内容区" style="height:715px" data-hoffset="2036"  ></div>
-                        <div class="J_TModule J_TAsyncModule" data-widgetid="11139579240"  id="shop11139579240"  data-componentid="5003"  data-spm='110.0.5003-11139579240'  microscope-data='5003-11139579240' data-title="自定义内容区" style="height:715px" data-hoffset="2751"  ></div>
-                        <div class="J_TModule J_TAsyncModule" data-widgetid="10117314627"  id="shop10117314627"  data-componentid="5003"  data-spm='110.0.5003-10117314627'  microscope-data='5003-10117314627' data-title="自定义内容区" style="height:715px" data-hoffset="3466"  ></div>
-                        <div class="J_TModule J_TAsyncModule" data-widgetid="11139236914"  id="shop11139236914"  data-componentid="5003"  data-spm='110.0.5003-11139236914'  microscope-data='5003-11139236914' data-title="自定义内容区" style="height:715px" data-hoffset="4181"  ></div>
-                        <div class="J_TModule J_TAsyncModule" data-widgetid="11649879470"  id="shop11649879470"  data-componentid="5003"  data-spm='110.0.5003-11649879470'  microscope-data='5003-11649879470' data-title="自定义内容区" style="height:112px" data-hoffset="4896"  ></div>
+                        <!-- data-title="自定义内容区"  3F港澳台-->
+                        <div class="J_TModule" data-widgetid="9882021204"  data-componentid="5003"  data-spm='110.0.5003-9882021204'  microscope-data='5003-9882021204' data-title="自定义内容区" data-hoffset="1035"  >
+                            <div class="skin-box tb-module tshop-pbsm tshop-pbsm-shop-self-defined">
+                                <s class="skin-box-tp"><b></b></s>
+                                <div class="skin-box-bd clear-fix">
+                                    <span>
+                                        <!-- TODO angular:gangaotai -->
+                                        <div tm-parent tm-mod-name="gangaotai"></div>
+								        <!-- angular:gangaotai End -->
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
 
+                        <!-- data-title="自定义内容区"  4F国内游-->
+                        <div class="J_TModule" data-widgetid="9882021204"  data-componentid="5003"  data-spm='110.0.5003-9882021204'  microscope-data='5003-9882021204' data-title="自定义内容区" data-hoffset="1035"  >
+                            <div class="skin-box tb-module tshop-pbsm tshop-pbsm-shop-self-defined">
+                                <s class="skin-box-tp"><b></b></s>
+                                <div class="skin-box-bd clear-fix">
+                                    <span>
+                                        <!-- TODO angular:gangaotai -->
+                                        <div tm-parent tm-mod-name="inbound"></div>
+								        <!-- angular:gangaotai End -->
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- data-title="自定义内容区"  6F周边游-->
+                        <div class="J_TModule" data-widgetid="9882021204"  data-componentid="5003"  data-spm='110.0.5003-9882021204'  microscope-data='5003-9882021204' data-title="自定义内容区" data-hoffset="1035"  >
+                            <div class="skin-box tb-module tshop-pbsm tshop-pbsm-shop-self-defined">
+                                <s class="skin-box-tp"><b></b></s>
+                                <div class="skin-box-bd clear-fix">
+                                    <span>
+                                        <!-- TODO angular:province-->
+                                        <div tm-parent tm-mod-name="province"></div>
+								        <!-- angular:province End -->
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="J_TModule" data-widgetid="11649879470" id="shop11649879470" data-componentid="5003" data-spm="110.0.5003-11649879470" microscope-data="5003-11649879470" data-title="自定义内容区" style="height: auto; display: block;" data-hoffset="4896"><!-- cache-info: componentId=5003 cacheKey=i-11649879470-20141218 cachedTime=2015-09-13 13:07:15 putHost=shopsystem010179175034.s.et2 expireTime=14400 -->
+                            <div class="skin-box tb-module tshop-pbsm tshop-pbsm-shop-self-defined">
+                                <s class="skin-box-tp"><b></b></s>
+                                <div class="skin-box-bd clear-fix">
+            <span>
+								    <img width="990" height="102" src="//gdp.alicdn.com/imgextra/i1/2067413496/TB2Wy8adVXXXXbvXXXXXXXXXXXX_!!2067413496.gif" alt=" 广之旅微信.jpg">
+							</span>
+                                </div>
+                                <s class="skin-box-bt"><b></b></s>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="layout grid-m0 J_TLayout" data-widgetid="6789938865" data-componentid="231" data-context="bd" data-prototypeid="231" data-id="6789938865" data-sitecategory="">
 
-                <div class="col-main">
-                    <div class="main-wrap J_TRegion" data-modules="main" style="overflow:visible;" data-width="b950">
-                        <div class="J_TModule J_TAsyncModule" data-widgetid="6886802264"  id="shop6886802264"  data-componentid="5003"  data-spm='110.0.5003-6886802264'  microscope-data='5003-6886802264' data-title="自定义内容区" style="height:10px" data-hoffset="5008"  ></div>
-
-                    </div>
-                </div>
-            </div>
 
         </div>
 

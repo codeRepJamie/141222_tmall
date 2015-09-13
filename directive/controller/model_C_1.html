@@ -1,0 +1,34 @@
+<div class="model model_C_1">
+    <ul>
+        <li ng-repeat="itemChild in item track by itemChild.config.id"><a href="#tabs-{{itemChild.config.id}}" ng-bind="itemChild.config.title" ng-model="itemChild.config.title"></a></li>
+    </ul>
+    <div ng-repeat="itemChild in item track by itemChild.config.id" id="tabs-{{itemChild.config.id}}">
+        <div class="title">设置标题:<input type="text" ng-model="itemChild.config.title"/>:<a class="funcLink" href="javascript:void(0);" ng-click="addItem()">添加一项</a><a class="funcLink" href="javascript:void(0);" ng-click="delete(itemChild.config.id)">删除该分页</a></div>
+        <table width="100%">
+            <tbody>
+            <tr>
+                <td valign="top" rowspan="2" ><img ng-src="{{itemChild.config.pic}}" height="{{miniSize(module.config['picSize-y'],1.5)}}"
+                          width="{{miniSize(itemChild.config['picSize-x'],1.5)}}" alt=""/></td>
+                <td>
+                    <ul class="title">
+                        <li>设置左侧广告位:</li>
+
+                        <li>
+                            图片地址:<input type="text" class="url" ng-model="itemChild.config.pic"/>
+                        </li>
+                        <li>
+                            目标地址:<input type="text" class="url" ng-model="itemChild.config.url"/>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div tm-control-model tm-mod-name="{{moduleName}}" tm-model-id="itemChild.config.id" tm-model-controller="B_1"></div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

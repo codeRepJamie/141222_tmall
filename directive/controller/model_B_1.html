@@ -1,6 +1,7 @@
 <div class="model">
-    <div class="title">设置{{item.config.title}}:<a ng-if="item.config.max!=1" class="funcLink" href="javascript:void(0);"
-                                                  ng-click="addItem()">添加一项</a></div>
+    <div class="title">设置{{item.config.title}}:
+        <a ng-if="item.config.max!=1" class="funcLink" href="javascript:void(0);"
+           ng-click="addItem()">添加一项</a></div>
     <ul tm-draggable>
         <li class="pic clear-fix" ng-class-even="'even'" ng-repeat="modelItem in model">
             <img class="picture" width="{{miniSize(item.config['picSize-x'])}}" height="{{miniSize(item.config['picSize-y'])}}" ng-src="{{modelItem.pic}}">
@@ -8,6 +9,9 @@
             <div class="inputCont">
                 <p>图片地址:<input class="url" type="text" ng-model="modelItem.pic"></p>
                 <p>目标地址:<input class="url" type="text" ng-model="modelItem.url"></p>
+                <p ng-if="modelItem.title!=undefined">标题:<input  class="text" type="text" ng-model="modelItem.title"></p>
+                <p ng-if="modelItem.sub_title!=undefined">次标题:<input class="text" type="text" ng-model="modelItem.sub_title"></p>
+                <p ng-if="modelItem.price!=undefined">价格:<input class="text" type="text" ng-model="modelItem.price"></p>
             </div>
             <a ng-if="item.config.max!=1" href="javascript:void(0);" class="ui-button-icon-primary ui-icon ui-icon-closethick close" ng-click="delete($index)"></a>
         </li>
